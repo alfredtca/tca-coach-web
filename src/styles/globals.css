@@ -1,0 +1,363 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --grain-opacity: 0.045;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: #0F1112;
+  color: #FFFFFF;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Selection */
+::selection {
+  background: #3DBFA0;
+  color: #0F1112;
+}
+
+/* ────────────────────────────────────────────────────────────
+   BRAND TYPOGRAPHY SYSTEM
+
+   Hero Display  Barlow Condensed Bold,     Uppercase  56–72 / 34–42
+   Page H1       Barlow Condensed Bold,     Uppercase  44–56 / 32–38
+   Section H2    Barlow Condensed SemiBold, Uppercase  30–36 / 26–30
+   Module H3     DM Sans Medium                        20–24 / 18–21
+   Intro Copy    DM Sans Regular                       18–20 / 16–17
+   Body Copy     DM Sans Regular                       16–17 / 15.5–16
+   UI / Button   DM Sans Medium                        14–15 / 14
+   Caption       DM Sans Regular                       12–13 / 12
+   ──────────────────────────────────────────────────────────── */
+
+/* Hero display + Page H1 — Barlow Condensed Bold uppercase */
+.display,
+.t-hero,
+.t-h1 {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.display-tight {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+}
+
+/* Section H2 — Barlow Condensed SemiBold uppercase */
+.t-h2,
+.display-section {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Module H3 — DM Sans Medium */
+.t-h3 {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+/* Intro copy — DM Sans Regular */
+.t-intro {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Body — default already DM Sans Regular; class included for explicit use */
+.t-body {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+}
+
+/* UI / button — DM Sans Medium, slight tracking up for caps */
+.t-ui {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Caption — DM Sans Regular */
+.t-caption {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Balance for headlines, pretty for body */
+.balance { text-wrap: balance; }
+.pretty { text-wrap: pretty; }
+
+/* Hairline rule used as section accent — flat, no gradient */
+.rule {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.18;
+}
+
+/* Grain overlay — applied to dark surfaces */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.65 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  mix-blend-mode: overlay;
+}
+
+.grain > * { position: relative; z-index: 1; }
+
+/* Cinematic frame — top + bottom hairline edges (flat teal at low opacity) */
+.frame-top::before,
+.frame-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(61, 191, 160, 0.45);
+  z-index: 2;
+  pointer-events: none;
+}
+.frame-top::before { top: 0; }
+.frame-bottom::after { bottom: 0; }
+
+/* Vertical edge label — rotated brand marker */
+.edge-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+/* Duotone treatment for backdrop photography — no accent color clash */
+.duotone-ink {
+  filter: grayscale(1) contrast(1.05) brightness(0.55);
+  mix-blend-mode: luminosity;
+}
+
+/* Scrim bottom — flat ink panel, no fade */
+.scrim-bottom::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: rgba(15, 17, 18, 0.85);
+}
+
+/* Marquee track inner — duplicated content */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+}
+
+.marquee-reverse .marquee-track {
+  animation-direction: reverse;
+}
+
+/* Reveal on scroll — base state, removed by IO */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+[data-reveal="in"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Focus visibility */
+*:focus-visible {
+  outline: 2px solid #3DBFA0;
+  outline-offset: 3px;
+}
+
+/* Buttons / links — never default underline on inline links unless explicit */
+a { color: inherit; }
+
+/* Body link variant */
+.link-teal {
+  color: #3DBFA0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-teal:hover { color: #2E9F85; }
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  top: -40px;
+  left: 12px;
+  background: #3DBFA0;
+  color: #0F1112;
+  padding: 8px 14px;
+  font-weight: 600;
+  z-index: 100;
+  transition: top 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skip-link:focus { top: 12px; }
+
+/* Pricing tier baseline alignment */
+.tier-grid {
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  row-gap: 1.25rem;
+}
+
+/* Stat reveal — large number, flat bone color, no gradient */
+.stat-shimmer {
+  color: #F0EDE8;
+}
+
+/* THE LINE — sideline/boundary marker. Brand creative device.
+   Flat 1px hairline in teal at low opacity. No gradient. */
+.brand-line {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: rgba(61, 191, 160, 0.55);
+}
+.brand-line-vertical {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: rgba(61, 191, 160, 0.55);
+}
+
+/* Cinematic photo treatment — athlete portraits with brand-aligned tone.
+   CSS filter, not a gradient. Preserves detail for hero. */
+.duotone-warm {
+  filter: grayscale(0.6) contrast(1.08) brightness(0.7) sepia(0.08);
+}
+
+/* LIGHT SECTIONS — flat tonal panels, no gradients */
+
+/* Editorial photo treatment for light sections — warm cinematic tone */
+.photo-warm {
+  filter: contrast(0.95) brightness(0.96) sepia(0.12) saturate(0.85);
+}
+.photo-mono-warm {
+  filter: grayscale(0.85) contrast(1.02) brightness(0.95) sepia(0.18);
+}
+
+/* Editorial card on light bg — solid color, no gradient. Soft elevation only. */
+.lift-bone {
+  background: #FAF8F4;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 18px 38px -22px rgba(70, 60, 45, 0.25),
+    0 6px 14px -8px rgba(70, 60, 45, 0.10);
+}
+
+.lift-bone-deep {
+  background: #F0EDE8;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 32px 60px -22px rgba(70, 60, 45, 0.30),
+    0 10px 22px -8px rgba(70, 60, 45, 0.12);
+}
+
+/* Asymmetric overlap helper — pulls element up over previous section */
+.lift-up-12 { margin-top: -3rem; }
+.lift-up-24 { margin-top: -6rem; }
+
+/* Frame mark — small corner accent for editorial cards on light bg */
+.corner-mark::before,
+.corner-mark::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: rgba(61, 191, 160, 0.7);
+  border-style: solid;
+  pointer-events: none;
+}
+.corner-mark::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+.corner-mark::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* Editorial number — large display number used as compositional anchor */
+.editorial-number {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+}
+
+/* Photo card — image with layered editorial frame */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  background: #1A1C1E;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 36px 60px -28px rgba(70, 60, 45, 0.35),
+    0 12px 24px -12px rgba(70, 60, 45, 0.18);
+}
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+}

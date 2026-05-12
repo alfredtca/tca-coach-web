@@ -1,0 +1,33 @@
+# dependencies
+node_modules
+
+# build output
+.next
+out
+dist
+
+# env (keep .env.example checked in, ignore everything else)
+.env
+.env.local
+.env*.local
+.env.production
+.env.development
+
+# deploy
+.vercel
+
+# local content / runtime data
+data/waitlist.json
+
+# typescript build info
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editor
+.idea
+.vscode
+*.swp
+*.swo
