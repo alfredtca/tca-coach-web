@@ -77,22 +77,29 @@ export const footer = {
   ] as CTA[]
 };
 
-// The 6 agents — used by the home showcase grid and the How It Works page.
+// The 5 specialists — used by the home showcase grid and the How It Works page.
 export type AgentIcon =
   | "compass"
   | "chartLineUp"
   | "megaphone"
   | "handshake"
-  | "shield"
-  | "currencyDollar";
+  | "shield";
 
 export type Agent = {
   number: string;
   slug: string;
   name: string;
+  /** Pathway label from the platform blueprint — e.g. "Foundation Pathway". */
+  pathway: string;
+  /** Doc outcome verb — "Profile backbone", "Engine of income growth", etc. */
+  tagline: string;
   role: string;
   description: string;
   produces: string[];
+  /** Quick-start prompt chips shown above the chat composer when empty.
+      `{sport}` / `{level}` / `{goal}` placeholders are substituted from the
+      user's Commercial Profile at runtime. */
+  quickStarts: { label: string; template: string }[];
   icon: AgentIcon;
   image: string;
   imageAlt: string;
@@ -100,16 +107,41 @@ export type Agent = {
 
 export const agents: Agent[] = [
   {
-    number: "01",
+    number: "02",
     slug: "brand-architect",
     name: "Brand Architect",
+    pathway: "Foundation Pathway",
+    tagline: "Profile backbone.",
     role: "Define the commercial brand sponsors will pay for.",
     description:
-      "Sharpens who you are commercially before you go to market. Positioning, behavioural values, narrative, and the words that show up consistently across a media kit, a pitch, and a press interview.",
+      "Sharpens who you are commercially before you go to market. Positioning, behavioural values, commercial narrative, and the three-length media bio that holds up in a pitch, a press interview, and an About section.",
     produces: [
       "Positioning statement built on real career evidence",
       "Behavioural values framework (what you do, not what you say)",
+      "Commercial narrative — the through-line that ties it together",
       "Three-length media bio: 25, 75, and 150 words"
+    ],
+    quickStarts: [
+      {
+        label: "Build my brand positioning",
+        template:
+          "I'm a {sport} athlete at {level} level. My commercial goals: {goal}. Help me define my positioning using the Commercial Athlete framework — what makes me different, who I'm built for, and the one sentence I lead with."
+      },
+      {
+        label: "Define my values framework",
+        template:
+          "I'm a {sport} athlete at {level} level. Help me build a behavioural values framework — three to five values, each one tied to a concrete thing I already do in training, competition, or media. Not what I aspire to. What I demonstrate."
+      },
+      {
+        label: "Write my 25 / 75 / 150 word bios",
+        template:
+          "Write me three media bios — 25, 75, and 150 words — that I can drop into a pitch deck, a website About page, and a press release. I'm a {sport} athlete at {level} level. Ask me what you need to know first."
+      },
+      {
+        label: "Audit my About section",
+        template:
+          "Audit my existing About section against TCA Identity standards. Tell me what's working, what's generic, and the one rewrite that would sharpen it most. I'll paste it on your next reply."
+      }
     ],
     icon: "compass",
     image:
@@ -117,16 +149,41 @@ export const agents: Agent[] = [
     imageAlt: "Athlete portrait at sunset — defining identity"
   },
   {
-    number: "02",
+    number: "03",
     slug: "revenue-strategist",
     name: "Revenue Strategist",
+    pathway: "Revenue Growth Pathway",
+    tagline: "Engine of income growth.",
     role: "Map every income stream available to your career.",
     description:
-      "Looks at where the money actually comes from for an athlete in your code, your stage of career, and your market. Builds a tiered plan so you know what to chase first and what's a distraction.",
+      "Looks at where the money actually comes from for an athlete in your code, your stage of career, and your market. Ranks every stream by effort vs. return and gives you a 12-month plan, sponsor target categories, and package structures sponsors recognise.",
     produces: [
-      "Income-stream map ranked by realistic effort vs return",
+      "Monetisation map ranked by realistic effort vs return",
       "12-month commercial plan with quarterly milestones",
-      "Sponsor category brief — who fits and who doesn't"
+      "Sponsor target brief — who fits and who doesn't",
+      "Package structure: tier 1 / 2 / 3 with deliverables and rationale"
+    ],
+    quickStarts: [
+      {
+        label: "Map my income streams",
+        template:
+          "I'm a {sport} athlete at {level} level. My income goal over the next 12 months: {goal}. Map every income stream realistically available to me right now, rank them by effort vs. return, and tell me what to chase first."
+      },
+      {
+        label: "Find my sponsor categories",
+        template:
+          "Build me a sponsor target brief. I'm a {sport} athlete at {level} level. List 5–8 brand categories that genuinely fit my career and audience, with two example brands per category and the angle I'd lead with for each."
+      },
+      {
+        label: "Structure my packages",
+        template:
+          "Help me structure a tiered sponsor package — three tiers, clear deliverables per tier, and the rationale for why each tier costs what it costs. I'm a {sport} athlete at {level} level."
+      },
+      {
+        label: "Build my 12-month plan",
+        template:
+          "Build me a 12-month commercial plan with quarterly milestones. My goal: {goal}. I'm a {sport} athlete at {level} level. Tell me what to start now, what to set up in Q2, and what to leave until later."
+      }
     ],
     icon: "chartLineUp",
     image:
@@ -134,16 +191,41 @@ export const agents: Agent[] = [
     imageAlt: "Charts on a screen — mapping the commercial year"
   },
   {
-    number: "03",
+    number: "04",
     slug: "authority-builder",
     name: "Authority Builder",
+    pathway: "Visibility & Content Pathway",
+    tagline: "Builds visibility.",
     role: "Become a credible voice in your sport and beyond.",
     description:
-      "Turns expertise into authority — the kind that gets you on panels, into boardrooms, and onto sponsor shortlists. Editorial calendar, talking points, and content that reads like a professional, not a feed.",
+      "Turns expertise into authority — the kind that gets you on panels, into boardrooms, and onto sponsor shortlists. 30-day plan, post drafts, long-form pieces, podcast pitches, and the talking points you can hold under pressure.",
     produces: [
-      "12-week editorial calendar matched to your commercial goals",
-      "Three signature talking points you can hold under pressure",
-      "Quarterly thought-leadership piece in long form"
+      "30-day content plan with pillars and weekly themes",
+      "Caption drafts and LinkedIn thought-leadership posts",
+      "Podcast pitch emails and speaker outlines",
+      "Three signature talking points you can hold under pressure"
+    ],
+    quickStarts: [
+      {
+        label: "Plan my next 30 days of content",
+        template:
+          "Build me a 30-day content plan with three pillars and weekly themes. I'm a {sport} athlete at {level} level. Commercial goal: {goal}. Tell me what to post, where to post it, and which posts are setting up which conversations."
+      },
+      {
+        label: "Draft my next LinkedIn post",
+        template:
+          "Help me draft a LinkedIn thought-leadership post. I'm a {sport} athlete at {level} level. Topic — ask me what I want to take on, then write me a sharp, on-voice draft I can post today."
+      },
+      {
+        label: "Pitch myself to a podcast",
+        template:
+          "Write me a podcast pitch email. I'm a {sport} athlete at {level} level. Ask me which show and what angle, then draft the email — short, specific, with a hook the host can't ignore."
+      },
+      {
+        label: "Find my signature talking points",
+        template:
+          "Help me find three signature talking points I can hold under pressure across interviews, podcasts, and panel appearances. I'm a {sport} athlete at {level} level. Anchor them in real career evidence, not slogans."
+      }
     ],
     icon: "megaphone",
     image:
@@ -151,16 +233,41 @@ export const agents: Agent[] = [
     imageAlt: "Microphone on a stage — speaking with authority"
   },
   {
-    number: "04",
+    number: "05",
     slug: "deal-room-assistant",
-    name: "Deal Room Assistant",
-    role: "Pitch decks, proposals, and negotiation prep on demand.",
+    name: "Deal Room",
+    pathway: "Deal Room & Commercial Confidence",
+    tagline: "Protects you commercially.",
+    role: "Pitches, proposals, fee scripts, and the ask itself.",
     description:
-      "The work most athletes outsource or skip. Drafts the pitch, structures the proposal, runs negotiation prep, and writes the follow-up — in language sponsors actually respond to.",
+      "Where the deal gets done. Drafts the pitch deck and the proposal. Sets the fee range and the scripts you'll use to defend it. Rehearses the ask, handles brand objections, runs the renewal. The work most athletes either outsource or skip.",
     produces: [
-      "Sponsor-ready pitch deck tailored to the brief",
-      "Proposal with clear deliverables, fee, and rights",
-      "Negotiation brief: walk-away, anchor, and trade points"
+      "Sponsor-ready pitch deck and proposal — deliverables, fee, rights",
+      "Negotiation brief: walk-away, anchor, and trade points",
+      "Fee benchmark range and scripts for the awkward conversations",
+      "Brand objection handling + renewal strategy"
+    ],
+    quickStarts: [
+      {
+        label: "Draft a proposal for this brand",
+        template:
+          "Draft me a sponsor proposal. I'm a {sport} athlete at {level} level. Ask me who the brand is, what they've asked for, and what I want from them — then write the proposal, deliverables-first, with the fee and rights as the last section."
+      },
+      {
+        label: "What should I charge for this?",
+        template:
+          "I've got an opportunity in front of me. I'm a {sport} athlete at {level} level. Walk me through what fee range is defensible — what I should anchor at, what my floor is, and the scripts I'll use if they push back."
+      },
+      {
+        label: "Rehearse the ask",
+        template:
+          "I've got a meeting where I need to lead with the fee. I'm a {sport} athlete at {level} level. Run a rehearsal with me — what I'll say in the first two minutes, what I'll say if they ask the rate before I'm ready, and the line I won't cross."
+      },
+      {
+        label: "Handle this brand objection",
+        template:
+          "A brand has pushed back on something in my proposal. Help me handle it. I'll tell you the objection on your next reply and you give me the script — the language I actually say, not a paraphrase."
+      }
     ],
     icon: "handshake",
     image:
@@ -168,38 +275,46 @@ export const agents: Agent[] = [
     imageAlt: "Pen on a contract — closing the deal"
   },
   {
-    number: "05",
+    number: "06",
     slug: "reputation-media-shield",
     name: "Reputation & Media Shield",
+    pathway: "Media & Reputation",
+    tagline: "Your safety net.",
     role: "Handle press, crises, and the conversations that matter.",
     description:
       "Holding statements, interview prep, and a calm second opinion when something goes sideways. Built for the moments where the wrong sentence in public costs a career.",
     produces: [
-      "Holding statement drafts for predictable scenarios",
-      "Interview prep: question bank, bridge phrases, no-go list",
+      "Crisis response drafts and holding statements",
+      "Interview Q&A and prep sheets",
+      "Talking points calibrated to your public narrative",
       "Crisis decision tree — what to say, who to call, when"
+    ],
+    quickStarts: [
+      {
+        label: "Draft a holding statement",
+        template:
+          "I need a holding statement. I'm a {sport} athlete at {level} level. Ask me what's happened on your next reply and draft me three lines I can put out in the next hour while we work the bigger response."
+      },
+      {
+        label: "Prep me for this interview",
+        template:
+          "I've got an interview coming up. I'm a {sport} athlete at {level} level. Ask me what outlet, what angle, and what the difficult question is — then build me the question bank, the bridge phrases, and the no-go list."
+      },
+      {
+        label: "Calibrate my talking points",
+        template:
+          "Help me calibrate three talking points I'll use across upcoming media. I'm a {sport} athlete at {level} level. Anchor them in my career evidence and tell me what to do if a journalist pushes past them."
+      },
+      {
+        label: "Run my crisis decision tree",
+        template:
+          "Something has happened and I need to think clearly before I act. I'm a {sport} athlete at {level} level. Walk me through the crisis decision tree — what to say, who to call, what to delay. I'll tell you the situation on your next reply."
+      }
     ],
     icon: "shield",
     image:
       "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1800&q=80",
     imageAlt: "Press cameras and microphones at a media wall"
-  },
-  {
-    number: "06",
-    slug: "commercial-confidence",
-    name: "Commercial Confidence",
-    role: "Ask for the fee. Hold the line. Know your worth.",
-    description:
-      "The mental and tactical work of getting paid properly. Fee benchmarks, scripts for the awkward conversations, and rehearsal for the meetings most athletes walk into cold.",
-    produces: [
-      "Fee benchmark range for your code and tier",
-      "Scripts for fee, scope-creep, and renewal conversations",
-      "Pre-meeting brief: prep, posture, and back-pocket lines"
-    ],
-    icon: "currencyDollar",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80",
-    imageAlt: "Empty boardroom table — the negotiation seat"
   }
 ];
 
@@ -224,7 +339,7 @@ export const pricingTiers: PricingTier[] = [
     cadence: "AUD / month",
     blurb: "Three specialists that put dollars on the board.",
     features: [
-      "Deal Room Assistant, Revenue Strategist, Commercial Confidence",
+      "Deal Room, Revenue Strategist, Authority Builder",
       "Commercial Readiness Score baseline",
       "Saved outputs in your dashboard",
       "Cancel anytime"
@@ -236,9 +351,9 @@ export const pricingTiers: PricingTier[] = [
     name: "Pro",
     price: "$69",
     cadence: "AUD / month",
-    blurb: "All 6 specialists. Monthly group Q&A with Carlie.",
+    blurb: "All 5 specialists. Monthly group Q&A with Carlie.",
     features: [
-      "All six specialists",
+      "All five specialists",
       "Monthly group Q&A with Carlie Green-Medina",
       "Quarterly framework updates",
       "Priority email support"
@@ -266,9 +381,9 @@ export const pricingTiers: PricingTier[] = [
 // ----- HOME PAGE -----
 export const home = {
   hero: {
-    eyebrow: "The Commercial Athlete Coach",
+    eyebrow: "The AI Commercial Department for Athletes",
     headline: "Build the career your sport won't.",
-    sub: "Six AI specialists trained on the TCA framework. A commercial department, available twenty-four hours a day. Built for emerging, semi-professional, and elite Australian athletes.",
+    sub: "Five specialists trained on the TCA framework. A commercial department available twenty-four hours a day — built for emerging, semi-professional, and elite Australian athletes.",
     primaryCta: { label: "Open the coach room", href: "/signup" },
     secondaryCta: { label: "See how it works", href: "/how-it-works" }
   },
@@ -296,7 +411,7 @@ export const home = {
   },
   agentShowcase: {
     eyebrow: "Meet your coach stack",
-    title: "Six specialists. One platform.",
+    title: "Five specialists. One platform.",
     sub: "Each one is a focused expert. Together they cover every part of your commercial career."
   },
   framework: {
@@ -366,7 +481,7 @@ export const howItWorks = {
   hero: {
     eyebrow: "How it works",
     title: "How the Coach works.",
-    sub: "Six specialists. One platform. Built on the TCA framework. Each agent owns a piece of the commercial career and works the same way: ask it a question, give it the context, get back work that's ready to use."
+    sub: "Five specialists. One platform. Built on the TCA framework. Each agent owns a piece of the commercial career and works the same way: ask it a question, give it the context, get back work that's ready to use."
   },
   outro: {
     eyebrow: "Ready to start?",
@@ -395,12 +510,11 @@ export const pricing = {
     {
       group: "Specialists",
       rows: [
-        { label: "Number of specialists", values: ["3", "All 6", "All 6"] },
-        { label: "Deal Room Assistant", values: [true, true, true] },
+        { label: "Number of specialists", values: ["3", "All 5", "All 5"] },
+        { label: "Deal Room (pitches, fees, scripts, rehearsal)", values: [true, true, true] },
         { label: "Revenue Strategist", values: [true, true, true] },
-        { label: "Commercial Confidence", values: [true, true, true] },
+        { label: "Authority Builder", values: [true, true, true] },
         { label: "Brand Architect", values: [false, true, true] },
-        { label: "Authority Builder", values: [false, true, true] },
         { label: "Reputation & Media Shield", values: [false, true, true] }
       ]
     },
@@ -439,7 +553,7 @@ export const pricing = {
       label: "What you pay with The Coach",
       price: "$69",
       cadence: "AUD / month",
-      tier: "Pro plan — all six specialists",
+      tier: "Pro plan — all five specialists",
       cta: { label: "Start free", href: "/signup" }
     }
   },
@@ -479,7 +593,7 @@ export const about = {
     paragraphs: [
       "Nearly two decades inside Australian sport, entertainment, and marketing — as a player, an agent, and the operator behind Agency X Talent, founded in 2017. Carlie has delivered commercial development to 600+ athletes across emerging, semi-professional, and elite levels — including Shayna Jack OAM OLY, Andrew McCullough, Jesse Tawhiao Wardlaw, Sam Williamson OLY, Jade North OLY, Tariq Sims, and Karina Brown.",
       "She has negotiated brand partnerships across Puma, Qantas, Nike, Adidas, Red Bull, Coca-Cola, Telstra, ASICS, Lululemon, Lorna Jane, Speedo, Gatorade, LSKD, and twenty-plus more — and run commercial workshops inside Brisbane Roar, Melbourne Victory, Western Sydney Wanderers, Melbourne City, the Australian Ladies Professional Golf tour, and the Sport Australia Hall of Fame Scholarship Program.",
-      "The Coach is the platform she wishes had existed when she started representing athletes. The framework — Identity, Strategy, Execute, Commercialise — was always the same. The only thing missing was scale. So she built it: six specialists trained on the same framework Agency X applies to its represented talent, available to any Australian athlete serious about their commercial career. Columbia Business School. Featured on Sky News Australia."
+      "The Coach is the platform she wishes had existed when she started representing athletes. The framework — Identity, Strategy, Execute, Commercialise — was always the same. The only thing missing was scale. So she built it: five specialists trained on the same framework Agency X applies to its represented talent, available to any Australian athlete serious about their commercial career. Columbia Business School. Featured on Sky News Australia."
     ]
   },
   framework: {
@@ -538,7 +652,7 @@ export const faq = {
     },
     {
       q: "How is this different from ChatGPT?",
-      a: "ChatGPT is a general-purpose tool. The Coach is six specialists trained on the TCA framework, with prompts written for the specific commercial situations athletes face — sponsor meetings, fee negotiations, media interviews, contract reviews. The outputs are designed to read cleanly to the people on the other side of the table, not to a general audience."
+      a: "ChatGPT is a general-purpose tool. The Coach is five specialists trained on the TCA framework, with prompts written for the specific commercial situations athletes face — sponsor meetings, fee negotiations, media interviews, contract reviews. The outputs are designed to read cleanly to the people on the other side of the table, not to a general audience."
     },
     {
       q: "What is an 'AI agent', actually?",

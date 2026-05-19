@@ -115,7 +115,7 @@ export function Hero() {
                 <SignupNudge variant="inline" tone="dark" cta="Start free" />
               </div>
               <p className="mt-3 text-caption text-coolGrey-deep/80">
-                No card. Six specialists, one tap away.
+                No card. Five specialists, one tap away.
               </p>
             </div>
           </Reveal>
@@ -135,7 +135,7 @@ export function Hero() {
                 {String(agents.length).padStart(2, "0")}
               </p>
               <p className="mt-3 text-ui text-coolGrey-soft max-w-[24ch] pretty">
-                Six AI coaches, each focused on one part of the commercial career.
+                Five AI specialists, each focused on one part of the commercial career.
               </p>
               <ul className="mt-8 flex flex-col gap-2.5 text-[12px] uppercase tracking-[0.16em] text-coolGrey-warm">
                 {["Identity", "Strategy", "Execute", "Commercialise"].map((p) => (

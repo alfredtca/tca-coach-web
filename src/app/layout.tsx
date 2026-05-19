@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s — The Commercial Athlete Coach"
   },
   description:
-    "An AI subscription platform built for Australian athletes. Six specialists trained on the TCA framework — your commercial department, available twenty-four hours a day.",
+    "The AI Commercial Department for Athletes. Five specialists trained on the TCA framework — built for Australian athletes, available twenty-four hours a day.",
   applicationName: "The Commercial Athlete Coach",
   authors: [{ name: "The Commercial Athlete" }],
   keywords: [
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     siteName: "The Commercial Athlete Coach",
     title: "The Commercial Athlete Coach",
     description:
-      "Build the career your sport won't. Six AI specialists for Australian athletes."
+      "Build the career your sport won't. The AI Commercial Department for Australian athletes."
   },
   twitter: {
     card: "summary_large_image",
     title: "The Commercial Athlete Coach",
     description:
-      "Build the career your sport won't. Six AI specialists for Australian athletes."
+      "Build the career your sport won't. The AI Commercial Department for Australian athletes."
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }]

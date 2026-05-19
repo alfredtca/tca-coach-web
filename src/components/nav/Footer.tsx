@@ -74,7 +74,8 @@ export function Footer() {
 
         {/* Sign-off tagline — brand voice line above legal bar */}
         <div className="border-t border-white/10 pt-14 pb-10">
-          <p className="display max-w-[34ch] text-h1Lg leading-[1.0] text-bone md:max-w-none balance">
+          <p className="eyebrow text-coolGrey-warm">The AI Commercial Department for Athletes</p>
+          <p className="display mt-4 max-w-[34ch] text-h1Lg leading-[1.0] text-bone md:max-w-none balance">
             Built for athletes <span className="text-teal">who refuse to wait.</span>
           </p>
         </div>

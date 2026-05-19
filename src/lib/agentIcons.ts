@@ -3,8 +3,7 @@ import {
   ChartLineUp,
   Megaphone,
   Handshake,
-  ShieldCheck,
-  CurrencyDollar
+  ShieldCheck
 } from "@phosphor-icons/react/dist/ssr";
 import type { Icon } from "@phosphor-icons/react";
 import type { AgentIcon } from "@/lib/content";
@@ -46,12 +45,6 @@ export const agentTone: Record<AgentIcon, AgentTone> = {
     hex: "#9CA8A8",
     tailwind: "agent-shield",
     label: "Steel"
-  },
-  currencyDollar: {
-    Icon: CurrencyDollar,
-    hex: "#C9BEA8",
-    tailwind: "agent-confidence",
-    label: "Champagne"
   }
 };
 

@@ -15,14 +15,19 @@ type Message = {
   content: string;
 };
 
+type QuickStart = { label: string; template: string };
+
 type Props = {
   slug: AgentSlug;
   agentName: string;
   agentRole: string;
   agentDescription: string;
   produces: string[];
+  quickStarts: QuickStart[];
   toneHex: string;
   toneLabel: string;
+  pathwayLabel: string;
+  pathwayNumber: string;
   iconKey: AgentIcon;
   userName: string;
 };
@@ -35,8 +40,11 @@ export function ChatRoom({
   agentRole,
   agentDescription,
   produces,
+  quickStarts,
   toneHex,
   toneLabel,
+  pathwayLabel,
+  pathwayNumber,
   iconKey,
   userName
 }: Props) {
@@ -195,11 +203,16 @@ export function ChatRoom({
               >
                 <Icon size={26} weight="light" />
               </div>
-              <p
-                className="mt-6 text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: toneHex }}
-              >
-                {toneLabel}
+              <p className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-coolGrey-warm">
+                <span className="tabular">Pathway {pathwayNumber}</span>
+                <span aria-hidden className="h-px w-3 bg-coolGrey-deep" />
+                <span>{pathwayLabel}</span>
+                <span
+                  aria-hidden
+                  className="ml-1 h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: toneHex }}
+                  title={toneLabel}
+                />
               </p>
               <h1 className="display-section mt-3 text-h2 leading-[1.05] text-bone balance">
                 {agentName}
@@ -255,6 +268,15 @@ export function ChatRoom({
                 agentName={agentName}
                 userName={userName}
                 toneHex={toneHex}
+                quickStarts={quickStarts}
+                onPick={(template) => {
+                  setInput(template);
+                  // Focus the textarea after the chip click so the user
+                  // can edit before hitting send.
+                  requestAnimationFrame(() => {
+                    document.getElementById("composer")?.focus();
+                  });
+                }}
               />
             ) : (
               <ol className="flex flex-col gap-7">
@@ -386,14 +408,18 @@ function AssistantBubble({
 function EmptyState({
   agentName,
   userName,
-  toneHex
+  toneHex,
+  quickStarts,
+  onPick
 }: {
   agentName: string;
   userName: string;
   toneHex: string;
+  quickStarts: QuickStart[];
+  onPick: (template: string) => void;
 }) {
   return (
-    <div className="flex h-full flex-col items-start justify-center py-12">
+    <div className="flex h-full flex-col items-start justify-center py-10">
       <p
         className="text-[10px] uppercase tracking-[0.22em]"
         style={{ color: toneHex }}
@@ -404,9 +430,39 @@ function EmptyState({
         Start the conversation, {userName}.
       </p>
       <p className="t-intro mt-5 max-w-[52ch] text-bodyLg text-coolGrey-soft pretty">
-        {agentName} stays inside their lane. If you ask something they don&apos;t
-        cover, they&apos;ll point you at the specialist who does.
+        {agentName} stays inside their lane. Ask something outside their charter
+        and they&apos;ll point you to the specialist who covers it.
       </p>
+
+      {quickStarts.length > 0 && (
+        <div className="mt-10 w-full max-w-[640px]">
+          <p className="eyebrow text-coolGrey-warm">Quick start</p>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {quickStarts.map((q) => (
+              <li key={q.label}>
+                <button
+                  type="button"
+                  onClick={() => onPick(q.template)}
+                  className="group relative flex h-full w-full items-start gap-3 border border-white/12 bg-white/[0.03] p-4 text-left transition-all duration-250 ease-editorial hover:-translate-y-[1px] hover:border-white/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                >
+                  <span
+                    aria-hidden
+                    className="mt-[7px] h-px w-3 shrink-0 transition-all group-hover:w-5"
+                    style={{ backgroundColor: toneHex }}
+                  />
+                  <span className="text-ui text-bone leading-snug pretty">
+                    {q.label}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-caption text-coolGrey-deep">
+            Pick one to pre-fill the composer with your profile context.
+            You can edit before sending.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

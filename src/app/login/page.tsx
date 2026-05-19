@@ -25,7 +25,7 @@ export default function LoginPage() {
           </h1>
           <p className="t-intro mt-8 max-w-prose2 text-bodyLg text-coolGrey-soft pretty">
             Welcome back. Drop in your email and you&apos;ll land in the coach
-            room, six specialists waiting.
+            room, five specialists waiting.
           </p>
           <p className="mt-8 text-caption text-coolGrey">
             New here?{" "}

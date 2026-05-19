@@ -18,7 +18,7 @@ export default function DashboardPage() {
             Dashboard.
           </h1>
           <p className="mt-8 max-w-prose2 text-bodyLg text-white/70 pretty">
-            Your six specialists, your saved outputs, and your commercial plan in one place. The chat room is live — saved outputs and the plan view ship next.
+            Your five specialists, your saved outputs, and your commercial plan in one place. The chat room is live — saved outputs and the plan view ship next.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Button href="/coach" variant="primary" size="lg" withArrow>

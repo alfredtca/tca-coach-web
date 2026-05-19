@@ -67,7 +67,7 @@ export function AgentShowcase() {
           <div
             className="relative aspect-[4/5] overflow-hidden bg-ink lg:col-span-7 lg:aspect-[5/6]"
             aria-roledescription="carousel"
-            aria-label="Coach stack — six AI specialists"
+            aria-label="Coach stack — five AI specialists"
           >
             {agents.map((agent, i) => {
               const tone = agentTone[agent.icon];

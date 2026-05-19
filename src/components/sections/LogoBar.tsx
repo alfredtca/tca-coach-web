@@ -10,7 +10,6 @@ const TICKER_TERMS = [
   "Authority Builder",
   "Deal Room",
   "Reputation Shield",
-  "Commercial Confidence",
   "Identity",
   "Strategy",
   "Execute",

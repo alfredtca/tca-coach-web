@@ -10,7 +10,7 @@ import { agents, howItWorks } from "@/lib/content";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "Six specialists. One platform. Built on the TCA framework. Each agent owns a piece of the commercial career."
+    "Five specialists. One platform. Built on the TCA framework. Each agent owns a piece of the commercial career."
 };
 
 export default function HowItWorksPage() {

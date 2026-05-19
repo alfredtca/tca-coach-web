@@ -3,15 +3,13 @@ import { revenueStrategist } from "./revenue-strategist";
 import { authorityBuilder } from "./authority-builder";
 import { dealRoomAssistant } from "./deal-room-assistant";
 import { reputationMediaShield } from "./reputation-media-shield";
-import { commercialConfidence } from "./commercial-confidence";
 
 export type AgentSlug =
   | "brand-architect"
   | "revenue-strategist"
   | "authority-builder"
   | "deal-room-assistant"
-  | "reputation-media-shield"
-  | "commercial-confidence";
+  | "reputation-media-shield";
 
 export type AgentModel = "claude-opus-4-7" | "claude-sonnet-4-6";
 
@@ -21,41 +19,40 @@ export type AgentSpec = {
   model: AgentModel;
 };
 
-/** Fast lookup by slug — all six agents. */
+/** Fast lookup by slug — five specialists per the platform blueprint.
+    Deal Room absorbs the fee + script + rehearsal work that previously
+    lived in a sixth Commercial Confidence agent. */
 export const agentRegistry: Record<AgentSlug, AgentSpec> = {
   "brand-architect": brandArchitect,
   "revenue-strategist": revenueStrategist,
   "authority-builder": authorityBuilder,
   "deal-room-assistant": dealRoomAssistant,
-  "reputation-media-shield": reputationMediaShield,
-  "commercial-confidence": commercialConfidence
+  "reputation-media-shield": reputationMediaShield
 };
 
 /** Subscription tiers map to which agents the user can access. */
 export type SubscriptionTier = "starter" | "pro" | "annual";
 
 /**
- * Starter = 3 specialists per the pricing teaser ("put dollars on the board"):
- * Deal Room Assistant, Revenue Strategist, Commercial Confidence.
- * Pro / Annual = all six.
+ * Starter = 3 specialists that put dollars on the board:
+ * Deal Room, Revenue Strategist, Authority Builder.
+ * Pro / Annual = all five.
  */
 export const tierAccess: Record<SubscriptionTier, AgentSlug[]> = {
-  starter: ["deal-room-assistant", "revenue-strategist", "commercial-confidence"],
+  starter: ["deal-room-assistant", "revenue-strategist", "authority-builder"],
   pro: [
     "brand-architect",
     "revenue-strategist",
     "authority-builder",
     "deal-room-assistant",
-    "reputation-media-shield",
-    "commercial-confidence"
+    "reputation-media-shield"
   ],
   annual: [
     "brand-architect",
     "revenue-strategist",
     "authority-builder",
     "deal-room-assistant",
-    "reputation-media-shield",
-    "commercial-confidence"
+    "reputation-media-shield"
   ]
 };
 

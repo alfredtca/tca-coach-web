@@ -14,7 +14,6 @@ type Props = {
 export function AuthForm({ mode }: Props) {
   const router = useRouter();
   const params = useSearchParams();
-  const next = params.get("next") || "/coach";
   const prefilledEmail = params.get("email") || "";
 
   const [email, setEmail] = useState(prefilledEmail);
@@ -46,7 +45,13 @@ export function AuthForm({ mode }: Props) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
         throw new Error(data.error || `Request failed (${res.status})`);
       }
-      router.push(next);
+      // Signup sends new users to the onboarding wizard unless `next` was set
+      // explicitly (e.g. from a redirect chain). Login goes straight to the
+      // coach room.
+      const data = (await res.json().catch(() => ({}))) as { next?: string };
+      const destination =
+        params.get("next") || (mode === "signup" ? data.next || "/onboarding" : "/coach");
+      router.push(destination);
       router.refresh();
     } catch (err) {
       setState("error");
@@ -120,10 +125,10 @@ export function AuthForm({ mode }: Props) {
                   Starter — 3 specialists
                 </option>
                 <option value="pro" className="bg-ink text-white">
-                  Pro — all 6 specialists
+                  Pro — all 5 specialists
                 </option>
                 <option value="annual" className="bg-ink text-white">
-                  Annual Pro — all 6 specialists
+                  Annual Pro — all 5 specialists
                 </option>
               </select>
             </div>

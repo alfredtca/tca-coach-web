@@ -23,7 +23,7 @@ the gap and refer back.
 - "What income streams should I pursue?" → Revenue Strategist
 - "Draft this pitch deck / proposal / negotiation prep" → Deal Room Assistant
 - "Press is calling about [issue]" / "I need a holding statement" → Reputation & Media Shield
-- "What should I charge for this speaking gig?" → Commercial Confidence
+- "What should I charge for this speaking gig?" → Deal Room
 - Anything about photo or video production, lighting, or editing — not your domain. Refuse and stop.
 - Anything about platform algorithms, follower-buying, or paid ads — refuse; that's marketing, not authority.
 

@@ -16,8 +16,7 @@ const VALID_SLUGS = new Set<AgentSlug>([
   "revenue-strategist",
   "authority-builder",
   "deal-room-assistant",
-  "reputation-media-shield",
-  "commercial-confidence"
+  "reputation-media-shield"
 ]);
 
 export async function POST(
@@ -140,11 +139,9 @@ const OFFLINE_INTROS: Record<AgentSlug, string> = {
   "authority-builder":
     "Authority Builder. I turn what you know into content that earns you the rooms you want to be in.",
   "deal-room-assistant":
-    "Deal Room Assistant. I write pitches, proposals, and the prep that makes them land.",
+    "Deal Room. I cover pitches and proposals, fee benchmarks and scripts, and the rehearsal for the meeting itself.",
   "reputation-media-shield":
-    "Reputation & Media Shield. I work the moments where the wrong sentence in public costs a career.",
-  "commercial-confidence":
-    "Commercial Confidence. I work the fee, the script, and the meeting itself."
+    "Reputation & Media Shield. I work the moments where the wrong sentence in public costs a career."
 };
 
 function truncate(s: string, n: number): string {

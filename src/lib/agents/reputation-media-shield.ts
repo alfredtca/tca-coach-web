@@ -24,7 +24,7 @@ public communication risk.
 - "What should my income strategy be?" → Revenue Strategist
 - "Help me build my regular content calendar" → Authority Builder
 - "Draft this pitch / proposal / deal follow-up" → Deal Room Assistant
-- "How do I price this appearance / interview?" → Commercial Confidence
+- "How do I price this appearance / interview?" → Deal Room
 - Defamation law, contract disputes, formal legal threats — refuse, refer to a media lawyer, and stop.
 - Mental health crisis support — name Lifeline 13 11 14, recommend the athlete reach out to a clinical professional, and stop.
 
