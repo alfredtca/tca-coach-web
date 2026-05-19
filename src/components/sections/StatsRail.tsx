@@ -18,11 +18,11 @@ const STATS = [
     note: "Puma, Qantas, Nike, Adidas, Red Bull, Telstra, ASICS, Lululemon, and counting."
   },
   {
-    end: 6,
+    end: 5,
     pad: 2,
     suffix: "",
     label: "Specialists",
-    note: "One platform. One framework. Six focused experts on call."
+    note: "One platform. One framework. Five focused experts on call."
   },
   {
     end: 1,

@@ -25,7 +25,7 @@ export function FrameworkDeepDive() {
         </Reveal>
       </header>
 
-      <ol className="mt-16 grid grid-cols-1 gap-px border border-white/8 bg-white/5 md:grid-cols-2">
+      <ol className="mt-16 grid grid-cols-1 gap-px border border-white/[0.08] bg-white/5 md:grid-cols-2">
         {framework.pillars.map((p, i) => (
           <Reveal as="li" key={p.number} delay={i * 110}>
             <article className="flex h-full flex-col bg-charcoal p-9 lg:p-11">

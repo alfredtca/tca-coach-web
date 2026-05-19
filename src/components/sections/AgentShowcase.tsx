@@ -115,11 +115,16 @@ export function AgentShowcase() {
                     </Link>
                   </div>
 
-                  {/* Bottom plate — dark background sized to text content.
-                      Tone color reduced to a single teal-anchored hairline so the
-                      marketing surface stays parent-brand monochrome. The full
-                      tone system still lives in the coach room itself. */}
-                  <div className="absolute inset-x-0 bottom-0 z-[3] bg-ink/92 p-7 md:p-10">
+                  {/* Bottom plate — solid dark background sized to text content.
+                      A top-fade gradient sits ABOVE the plate so the dark area
+                      blends into the photo instead of cutting it off with a hard
+                      edge. Tone color reduced to a single teal-anchored hairline so
+                      the marketing surface stays parent-brand monochrome. */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-40 bg-gradient-to-t from-ink/[0.95] via-ink/70 to-transparent"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 z-[3] bg-ink/[0.95] p-7 md:p-10">
                     <div className="flex items-center gap-3">
                       <span
                         aria-hidden

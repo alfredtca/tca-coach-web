@@ -28,7 +28,7 @@ export function StickyMobileCTA() {
       aria-hidden={!show}
       className={cn(
         "fixed inset-x-0 bottom-0 z-40 lg:hidden",
-        "border-t border-white/10 bg-ink/92 backdrop-blur-md",
+        "border-t border-white/10 bg-ink/[0.92] backdrop-blur-md",
         "transition-all duration-350 ease-editorial",
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       )}

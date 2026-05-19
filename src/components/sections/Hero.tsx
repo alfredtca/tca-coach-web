@@ -28,7 +28,7 @@ export function Hero() {
       {/* Layer 2 — flat copy panel. Slightly heavier so type carries the section. */}
       <div
         aria-hidden
-        className="absolute inset-y-0 left-0 z-[1] w-full bg-ink/92 md:w-[72%] lg:w-[64%]"
+        className="absolute inset-y-0 left-0 z-[1] w-full bg-ink/[0.92] md:w-[72%] lg:w-[64%]"
       />
 
       {/* Layer 3 — single teal hairline on the seam. Brand signature device. */}

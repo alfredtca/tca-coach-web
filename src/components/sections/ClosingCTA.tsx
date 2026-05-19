@@ -11,7 +11,7 @@ export function ClosingCTA() {
       tone="ink"
       pad="lg"
       grain
-      className="relative border-t border-white/8 frame-top"
+      className="relative border-t border-white/[0.08] frame-top"
     >
       <div className="relative grid gap-14 lg:grid-cols-12 lg:gap-16">
         <header className="lg:col-span-7">

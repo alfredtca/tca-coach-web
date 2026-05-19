@@ -443,7 +443,7 @@ function EmptyState({
                 <button
                   type="button"
                   onClick={() => onPick(q.template)}
-                  className="group relative flex h-full w-full items-start gap-3 border border-white/12 bg-white/[0.03] p-4 text-left transition-all duration-250 ease-editorial hover:-translate-y-[1px] hover:border-white/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                  className="group relative flex h-full w-full items-start gap-3 border border-white/[0.12] bg-white/[0.03] p-4 text-left transition-all duration-250 ease-editorial hover:-translate-y-[1px] hover:border-white/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
                 >
                   <span
                     aria-hidden

@@ -27,7 +27,7 @@ export function Testimonials() {
       </header>
 
       {/* Editorial broken grid: featured large card + two stacked smaller */}
-      <div className="relative mt-16 grid gap-px border border-white/8 bg-white/5 lg:grid-cols-12">
+      <div className="relative mt-16 grid gap-px border border-white/[0.08] bg-white/5 lg:grid-cols-12">
         {/* Large feature card — first testimonial */}
         <article className="relative col-span-12 flex flex-col bg-ink/95 p-8 md:p-12 lg:col-span-7">
           <span aria-hidden className="absolute left-0 top-0 h-px w-20 bg-teal" />
