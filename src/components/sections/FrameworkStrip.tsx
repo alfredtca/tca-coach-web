@@ -9,16 +9,14 @@ const PILLARS = [
 
 /**
  * Brand signature strip — repeats the parent-brand framework as a single
- * monumental band. Sits between hero and the rest of the page, the same
- * way the parent site uses "Identity → Strategy → Execute → Commercialise"
- * as its signature throughline. Pure typography, no decoration.
+ * monumental band of typography. Light surface to match the parent.
  */
 export function FrameworkStrip() {
   return (
     <Section
-      tone="ink"
+      tone="paperSoft"
       pad="none"
-      className="relative border-y border-white/10"
+      className="relative border-y border-rule/60"
     >
       <div className="grid grid-cols-2 md:grid-cols-4">
         {PILLARS.map((p, i) => (
@@ -26,15 +24,15 @@ export function FrameworkStrip() {
             key={p.number}
             className={[
               "flex items-center gap-4 px-6 py-7 md:px-8 md:py-9",
-              i > 0 ? "md:border-l border-white/10" : "",
-              i === 1 ? "border-l border-white/10" : "",
-              i >= 2 ? "border-t border-white/10 md:border-t-0" : ""
+              i > 0 ? "md:border-l border-rule/60" : "",
+              i === 1 ? "border-l border-rule/60" : "",
+              i >= 2 ? "border-t border-rule/60 md:border-t-0" : ""
             ].join(" ")}
           >
-            <span className="display tabular text-h3 leading-none text-coolGrey-deep">
+            <span className="display tabular text-h3 leading-none text-ink/40">
               {p.number}
             </span>
-            <span className="display-section text-h3Lg text-bone leading-none">
+            <span className="display-section text-h3Lg text-ink leading-none">
               {p.label}
             </span>
           </div>

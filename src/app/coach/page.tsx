@@ -21,7 +21,7 @@ export default function CoachIndexPage() {
 
   return (
     <Section
-      tone="ink"
+      tone="paper"
       pad="none"
       grain
       className="pt-32 pb-24 md:pt-40 md:pb-32 min-h-[80vh]"
@@ -29,22 +29,22 @@ export default function CoachIndexPage() {
       <header className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <Eyebrow tone="muted">G&apos;day, {session.name}</Eyebrow>
-          <h1 className="display mt-6 text-h1Lg text-bone balance">
+          <h1 className="display mt-6 text-h1Lg text-ink balance">
             What would you like to work on today?
           </h1>
-          <p className="t-intro mt-8 max-w-prose2 text-bodyLg text-coolGrey-soft pretty">
+          <p className="t-intro mt-8 max-w-prose2 text-bodyLg text-ink/65 pretty">
             Pick a specialist. Each one stays inside their lane — ask a question
             outside their charter and they&apos;ll point you to the specialist who
             covers it.
           </p>
         </div>
         <aside className="lg:col-span-4">
-          <div className="border border-white/10 bg-charcoal p-7">
-            <p className="eyebrow text-coolGrey">Plan</p>
-            <p className="display-section mt-3 text-h2 text-bone capitalize">
+          <div className="border border-rule/60 bg-paper-soft p-7">
+            <p className="eyebrow text-ink/60">Plan</p>
+            <p className="display-section mt-3 text-h2 text-ink capitalize">
               {session.tier}
             </p>
-            <p className="mt-3 text-ui text-coolGrey-soft pretty">
+            <p className="mt-3 text-ui text-ink/65 pretty">
               {session.tier === "starter"
                 ? "Three specialists that put dollars on the board."
                 : "All five specialists, full coach room."}
@@ -58,14 +58,14 @@ export default function CoachIndexPage() {
         <div className="mt-10 flex flex-col gap-4 border border-teal/40 bg-teal/[0.06] p-6 md:flex-row md:items-center md:justify-between md:p-7">
           <div className="md:max-w-[60ch]">
             <p className="eyebrow text-teal">One thing left</p>
-            <p className="mt-2 text-body text-bone pretty">
+            <p className="mt-2 text-body text-ink pretty">
               Finish your Commercial Profile so each specialist can pre-fill
               prompts with your code, level, and goal. Takes ninety seconds.
             </p>
           </div>
           <Link
             href="/onboarding"
-            className="inline-flex h-11 items-center gap-2 self-start bg-teal px-5 text-[12.5px] font-medium uppercase tracking-[0.18em] text-ink transition-all duration-250 ease-editorial hover:bg-teal-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink md:self-auto"
+            className="inline-flex h-11 items-center gap-2 self-start bg-ink px-5 text-[12.5px] font-medium uppercase tracking-[0.18em] text-paper transition-all duration-250 ease-editorial hover:bg-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper md:self-auto"
           >
             Complete profile
             <ArrowUpRight size={14} weight="bold" />
@@ -75,27 +75,27 @@ export default function CoachIndexPage() {
 
       {/* Commercial Score — manual placeholder. Live scoring ships once the
           first plan output is saved. Keep this honest, not fake-data. */}
-      <div className="mt-10 grid gap-px border border-white/10 bg-white/5 md:grid-cols-3">
-        <div className="bg-ink/85 p-6 md:p-7">
-          <p className="eyebrow text-coolGrey">Your Commercial Score</p>
-          <p className="display tabular mt-4 text-displayLg leading-none text-bone">—</p>
-          <p className="mt-3 text-caption text-coolGrey-deep">
+      <div className="mt-10 grid gap-px border border-rule/60 bg-paper-soft md:grid-cols-3">
+        <div className="bg-paper p-6 md:p-7">
+          <p className="eyebrow text-ink/60">Your Commercial Score</p>
+          <p className="display tabular mt-4 text-displayLg leading-none text-ink">—</p>
+          <p className="mt-3 text-caption text-ink/45">
             Live scoring lands once your first plan is saved.
           </p>
         </div>
-        <div className="bg-ink/85 p-6 md:p-7">
-          <p className="eyebrow text-coolGrey">Phase</p>
-          <p className="display-section mt-4 text-h2 leading-none text-bone">
+        <div className="bg-paper p-6 md:p-7">
+          <p className="eyebrow text-ink/60">Phase</p>
+          <p className="display-section mt-4 text-h2 leading-none text-ink">
             Foundation
           </p>
-          <p className="mt-3 text-caption text-coolGrey-deep">
+          <p className="mt-3 text-caption text-ink/45">
             Start in Brand Architect — Pathway 02.
           </p>
         </div>
-        <div className="bg-ink/85 p-6 md:p-7">
-          <p className="eyebrow text-coolGrey">Saved outputs</p>
-          <p className="display tabular mt-4 text-displayLg leading-none text-bone">—</p>
-          <p className="mt-3 text-caption text-coolGrey-deep">
+        <div className="bg-paper p-6 md:p-7">
+          <p className="eyebrow text-ink/60">Saved outputs</p>
+          <p className="display tabular mt-4 text-displayLg leading-none text-ink">—</p>
+          <p className="mt-3 text-caption text-ink/45">
             Drafts, decks and plans land here once you save them.
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function CoachIndexPage() {
               {accessible ? (
                 <Link
                   href={`/coach/${agent.slug}`}
-                  className="group relative block border border-white/10 bg-white/[0.03] p-7 transition-all duration-350 ease-editorial hover:-translate-y-[1px] hover:border-white/25 md:p-9"
+                  className="group relative block border border-rule/60 bg-paper-soft p-7 transition-all duration-350 ease-editorial hover:-translate-y-[1px] hover:border-ink/25 md:p-9"
                 >
                   <span
                     aria-hidden
@@ -121,14 +121,14 @@ export default function CoachIndexPage() {
                   <div className="flex items-start gap-5">
                     <span
                       aria-hidden
-                      className="flex h-12 w-12 shrink-0 items-center justify-center border border-bone/20 bg-white/[0.03] text-bone"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center border border-rule/60 bg-paper text-ink"
                     >
                       <Icon size={22} weight="light" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-coolGrey-warm">
+                      <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/55">
                         <span className="tabular">Pathway {agent.number}</span>
-                        <span aria-hidden className="h-px w-3 bg-coolGrey-deep" />
+                        <span aria-hidden className="h-px w-3 bg-ink/30" />
                         <span>{agent.pathway}</span>
                         <span
                           aria-hidden
@@ -136,48 +136,48 @@ export default function CoachIndexPage() {
                           style={{ backgroundColor: tone.hex }}
                         />
                       </p>
-                      <h2 className="display-section mt-2 text-h2 leading-[1.1] text-bone">
+                      <h2 className="display-section mt-2 text-h2 leading-[1.1] text-ink">
                         {agent.name}
                       </h2>
-                      <p className="mt-2 text-caption text-coolGrey">
+                      <p className="mt-2 text-caption text-ink/60">
                         {agent.tagline}
                       </p>
-                      <p className="mt-4 text-ui text-coolGrey-soft pretty">
+                      <p className="mt-4 text-ui text-ink/65 pretty">
                         {agent.role}
                       </p>
                     </div>
                     <ArrowUpRight
                       size={18}
                       weight="regular"
-                      className="text-coolGrey-warm transition-transform duration-350 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      className="text-ink/55 transition-transform duration-350 group-hover:translate-x-1 group-hover:-translate-y-1"
                     />
                   </div>
                 </Link>
               ) : (
                 <div
                   aria-label={`${agent.name} — locked on your plan`}
-                  className="relative block border border-white/5 bg-white/[0.015] p-7 md:p-9"
+                  className="relative block border border-rule/40 bg-paper-soft/40 p-7 md:p-9"
                 >
                   <div className="flex items-start gap-5 opacity-55">
                     <span
                       aria-hidden
-                      className="flex h-12 w-12 shrink-0 items-center justify-center border border-white/10 bg-white/[0.02] text-coolGrey-deep"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center border border-rule/60 bg-paper text-ink/45"
                     >
                       <LockKey size={20} weight="light" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-coolGrey-deep">
+                      <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/45">
                         <span className="tabular">Pathway {agent.number}</span>
-                        <span aria-hidden className="h-px w-3 bg-coolGrey-deep/60" />
+                        <span aria-hidden className="h-px w-3 bg-ink/20" />
                         <span>Locked on Starter</span>
                       </p>
-                      <h2 className="display-section mt-2 text-h2 leading-[1.1] text-bone">
+                      <h2 className="display-section mt-2 text-h2 leading-[1.1] text-ink">
                         {agent.name}
                       </h2>
-                      <p className="mt-2 text-caption text-coolGrey">
+                      <p className="mt-2 text-caption text-ink/60">
                         {agent.tagline}
                       </p>
-                      <p className="mt-4 text-ui text-coolGrey-soft pretty">
+                      <p className="mt-4 text-ui text-ink/65 pretty">
                         {agent.role}
                       </p>
                     </div>

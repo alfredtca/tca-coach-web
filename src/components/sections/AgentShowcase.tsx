@@ -109,7 +109,7 @@ export function AgentShowcase() {
                     <Link
                       href={`/how-it-works#${agent.slug}`}
                       aria-label={`Read more about ${agent.name}`}
-                      className="flex h-9 w-9 items-center justify-center border border-bone/30 bg-bone/10 text-bone transition-colors duration-250 hover:border-teal hover:text-teal"
+                      className="flex h-9 w-9 items-center justify-center border border-paper/40 bg-paper/15 text-paper backdrop-blur-sm transition-colors duration-250 hover:border-teal hover:bg-paper/30 hover:text-teal"
                     >
                       <ArrowUpRight size={16} weight="regular" />
                     </Link>
@@ -128,11 +128,11 @@ export function AgentShowcase() {
                     <div className="flex items-center gap-3">
                       <span
                         aria-hidden
-                        className="flex h-12 w-12 items-center justify-center border border-bone/20 bg-ink/40 text-bone"
+                        className="flex h-12 w-12 items-center justify-center border border-paper/20 bg-ink/40 text-paper"
                       >
                         <TIcon size={22} weight="light" />
                       </span>
-                      <span className="eyebrow text-coolGrey-warm">
+                      <span className="eyebrow text-paper/65">
                         {tone.label}
                       </span>
                       <span
@@ -141,23 +141,23 @@ export function AgentShowcase() {
                         style={{ backgroundColor: tone.hex }}
                       />
                     </div>
-                    <h3 className="display-section mt-6 text-h2Lg text-bone balance">
+                    <h3 className="display-section mt-6 text-h2Lg text-paper balance">
                       {agent.name}
                     </h3>
-                    <p className="mt-3 text-bodyLg text-bone/85 max-w-[44ch] pretty">
+                    <p className="mt-3 text-bodyLg text-paper/85 max-w-[44ch] pretty">
                       {agent.role}
                     </p>
-                    <p className="mt-5 hidden md:block max-w-[52ch] text-body text-bone/75 pretty">
+                    <p className="mt-5 hidden md:block max-w-[52ch] text-body text-paper/75 pretty">
                       {agent.description}
                     </p>
                     {/* Produces line — concrete deliverable for this agent.
                         Anchors the abstract role in a real artefact. */}
                     {agent.produces?.[0] ? (
-                      <div className="mt-6 flex items-start gap-4 border-t border-bone/15 pt-5">
+                      <div className="mt-6 flex items-start gap-4 border-t border-paper/15 pt-5">
                         <span className="shrink-0 eyebrow text-teal pt-[3px]">
                           Produces
                         </span>
-                        <span className="text-ui text-bone/80 max-w-[46ch] pretty">
+                        <span className="text-ui text-paper/80 max-w-[46ch] pretty">
                           {agent.produces[0]}
                         </span>
                       </div>

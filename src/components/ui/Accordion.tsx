@@ -8,11 +8,15 @@ export type AccordionItem = { q: string; a: string };
 
 type Props = {
   items: AccordionItem[];
-  tone?: "ink" | "bone";
+  /**
+   * paper / bone / paperSoft — light surface (default for parent-brand pages).
+   * ink — dark surface (legacy, kept for backwards compatibility).
+   */
+  tone?: "paper" | "paperSoft" | "bone" | "ink";
   defaultOpenIndex?: number;
 };
 
-export function Accordion({ items, tone = "ink", defaultOpenIndex }: Props) {
+export function Accordion({ items, tone = "paper", defaultOpenIndex }: Props) {
   const [openIdx, setOpenIdx] = useState<number | null>(
     defaultOpenIndex ?? null
   );

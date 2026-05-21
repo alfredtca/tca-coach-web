@@ -27,10 +27,10 @@ export default function AboutPage() {
       <FrameworkDeepDive />
       <Ecosystem />
 
-      <Section tone="ink" pad="default">
+      <Section tone="paper" pad="default">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
-            <h2 className="display text-h1 text-white md:text-h1Lg balance max-w-[24ch]">
+            <h2 className="display text-h1 text-ink md:text-h1Lg balance max-w-[24ch]">
               {about.closing.title}
             </h2>
           </Reveal>

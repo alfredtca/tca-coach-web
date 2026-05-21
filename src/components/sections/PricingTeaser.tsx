@@ -26,7 +26,7 @@ export function PricingTeaser() {
           </Reveal>
           <Reveal delay={340}>
             <div className="mt-10">
-              <Button href={pricingTeaser.cta.href} variant="ghost" size="lg" withArrow>
+              <Button href={pricingTeaser.cta.href} variant="ghost-dark" size="lg" withArrow>
                 {pricingTeaser.cta.label}
               </Button>
             </div>
@@ -37,31 +37,31 @@ export function PricingTeaser() {
           {pricingTiers.map((tier, i) => (
             <Reveal as="li" key={tier.id} delay={i * 100}>
               <Card
-                tone="ink"
+                tone="paper"
                 highlight={tier.highlight}
-                className="h-full p-7 lg:p-8 tier-grid"
+                className="h-full p-7 lg:p-8 tier-grid shadow-card"
               >
                 <div className="flex items-baseline justify-between">
-                  <p className="display-section text-h3 text-bone">
+                  <p className="display-section text-h3 text-ink">
                     {tier.name}
                   </p>
                   {tier.badge && (
-                    <span className="border border-teal px-2 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-teal">
+                    <span className="border border-teal px-2 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-teal-deep">
                       {tier.badge}
                     </span>
                   )}
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <span className="display tabular text-h1 leading-none text-bone">
+                  <span className="display tabular text-h1 leading-none text-ink">
                     {tier.price}
                   </span>
-                  <span className="text-caption text-coolGrey">{tier.cadence}</span>
+                  <span className="text-caption text-ink/55">{tier.cadence}</span>
                 </div>
-                <p className="text-ui text-coolGrey-soft pretty">{tier.blurb}</p>
-                <ul className="text-ui text-coolGrey-soft self-start space-y-2">
+                <p className="text-ui text-ink/70 pretty">{tier.blurb}</p>
+                <ul className="text-ui text-ink/65 self-start space-y-2">
                   {tier.features.slice(0, 2).map((f) => (
                     <li key={f} className="flex items-start gap-2">
-                      <span aria-hidden className="mt-[7px] h-px w-3 bg-white/30 shrink-0" />
+                      <span aria-hidden className="mt-[7px] h-px w-3 bg-teal shrink-0" />
                       <span className="pretty">{f}</span>
                     </li>
                   ))}
@@ -70,7 +70,7 @@ export function PricingTeaser() {
                 <div className="self-end">
                   <Button
                     href={tier.cta.href}
-                    variant={tier.highlight ? "primary" : "ghost"}
+                    variant={tier.highlight ? "primary" : "ghost-dark"}
                     size="md"
                     fullWidth
                   >

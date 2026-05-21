@@ -28,12 +28,14 @@ export function SignupNudge({
   const [error, setError] = useState<string | null>(null);
 
   const dark = tone === "dark";
+  // Both tones now sit on light surfaces — the "dark" tone reads as a darker
+  // hairline + ink-deep fill so it pops in subtle contrast sections.
   const fieldBase = cn(
     "w-full bg-transparent border px-4 py-3.5 text-ui transition-colors duration-250 ease-editorial",
     "focus:outline-none focus:border-teal",
     dark
-      ? "border-white/15 text-white placeholder:text-white/40"
-      : "border-ink/15 text-ink placeholder:text-ink/40"
+      ? "border-ink/25 text-ink placeholder:text-ink/40"
+      : "border-rule/70 text-ink placeholder:text-ink/40"
   );
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -87,8 +89,8 @@ export function SignupNudge({
             "active:translate-y-[1px] active:scale-[0.98]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
             dark
-              ? "bg-teal text-ink hover:bg-teal-deep"
-              : "bg-ink text-bone hover:bg-charcoal"
+              ? "bg-ink text-paper hover:bg-ink-soft"
+              : "bg-ink text-paper hover:bg-ink-soft"
           )}
         >
           <span>{cta}</span>
@@ -124,9 +126,7 @@ export function SignupNudge({
           "inline-flex items-center justify-center gap-2 px-7 text-[12.5px] font-medium uppercase tracking-[0.16em] transition-all duration-250 ease-editorial",
           "active:translate-y-[1px] active:scale-[0.98]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
-          dark
-            ? "bg-teal text-ink hover:bg-teal-deep"
-            : "bg-ink text-bone hover:bg-charcoal"
+          "bg-ink text-paper hover:bg-ink-soft"
         )}
       >
         <span>{cta}</span>

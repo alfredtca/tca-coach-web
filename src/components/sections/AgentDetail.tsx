@@ -20,7 +20,7 @@ export function AgentDetail({ agent, index }: Props) {
       tone={tone}
       pad="default"
       grain={tone === "ink"}
-      className="border-t border-white/5"
+      className="border-t border-rule/40"
     >
       <div
         className={cn(
@@ -31,7 +31,7 @@ export function AgentDetail({ agent, index }: Props) {
         {/* Specialist placard */}
         <aside className="lg:col-span-4">
           <Reveal>
-            <div className="relative border border-white/10 bg-white/[0.02] p-8 lg:p-10">
+            <div className="relative border border-rule/60 bg-white/[0.02] p-8 lg:p-10">
               {/* Top accent hairline in agent tone */}
               <span
                 aria-hidden
@@ -46,12 +46,12 @@ export function AgentDetail({ agent, index }: Props) {
                 >
                   <Icon size={30} weight="light" />
                 </span>
-                <span className="display tabular text-[14px] tracking-[0.18em] text-coolGrey-deep">
+                <span className="display tabular text-[14px] tracking-[0.18em] text-ink/45">
                   {agent.number}
                 </span>
               </div>
-              <p className="eyebrow text-coolGrey mt-12">Specialist</p>
-              <p className="mt-4 display text-h2 leading-[1.05] text-bone">
+              <p className="eyebrow text-ink/60 mt-12">Specialist</p>
+              <p className="mt-4 display text-h2 leading-[1.05] text-ink">
                 {agent.name}
               </p>
               <p
@@ -60,7 +60,7 @@ export function AgentDetail({ agent, index }: Props) {
               >
                 {accent.label}
               </p>
-              <p className="mt-3 text-ui text-coolGrey-soft pretty">{agent.role}</p>
+              <p className="mt-3 text-ui text-ink/65 pretty">{agent.role}</p>
             </div>
           </Reveal>
         </aside>
@@ -68,26 +68,26 @@ export function AgentDetail({ agent, index }: Props) {
         {/* Body */}
         <div className="lg:col-span-8">
           <Reveal delay={100}>
-            <h2 className="display-section text-h2Lg text-bone balance">
+            <h2 className="display-section text-h2Lg text-ink balance">
               {agent.role}
             </h2>
           </Reveal>
           <Reveal delay={220}>
-            <p className="mt-8 max-w-prose2 text-bodyLg text-coolGrey-soft pretty">
+            <p className="mt-8 max-w-prose2 text-bodyLg text-ink/65 pretty">
               {agent.description}
             </p>
           </Reveal>
 
           <Reveal delay={340}>
             <div className="mt-12">
-              <p className="eyebrow text-coolGrey">What it produces</p>
-              <ul className="mt-6 grid gap-px border border-white/10 bg-white/5 md:grid-cols-3">
+              <p className="eyebrow text-ink/60">What it produces</p>
+              <ul className="mt-6 grid gap-px border border-rule/60 bg-paper-soft md:grid-cols-3">
                 {agent.produces.map((p, i) => (
-                  <li key={p} className="bg-charcoal p-6 lg:p-8">
-                    <span className="display tabular text-[14px] tracking-[0.16em] text-coolGrey-deep">
+                  <li key={p} className="bg-paper-soft p-6 lg:p-8">
+                    <span className="display tabular text-[14px] tracking-[0.16em] text-ink/45">
                       {`0${i + 1}`}
                     </span>
-                    <p className="mt-5 text-body text-coolGrey-soft pretty">{p}</p>
+                    <p className="mt-5 text-body text-ink/65 pretty">{p}</p>
                   </li>
                 ))}
               </ul>

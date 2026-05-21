@@ -22,12 +22,12 @@ export function BioSection() {
               <span aria-hidden className="absolute left-0 top-0 h-px w-16 bg-teal" />
               <span aria-hidden className="absolute left-0 top-0 h-16 w-px bg-teal" />
               {/* Bottom plate — name + role on flat dark panel */}
-              <div className="absolute inset-x-0 bottom-0 bg-ink/85 p-7">
+              <div className="absolute inset-x-0 bottom-0 bg-paper/85 p-7">
                 <p className="eyebrow text-teal">Founder</p>
-                <p className="display mt-3 text-h2 leading-[1.05] text-bone">
+                <p className="display mt-3 text-h2 leading-[1.05] text-ink">
                   Carlie Green-Medina
                 </p>
-                <p className="mt-3 text-caption text-coolGrey-soft">Brisbane, Australia</p>
+                <p className="mt-3 text-caption text-ink/65">Brisbane, Australia</p>
               </div>
             </div>
 

@@ -25,15 +25,15 @@ export function ComparisonPanel() {
           </Reveal>
 
           <Reveal delay={340}>
-            <div className="mt-10 border border-ink/15 bg-ink p-7 lg:p-8 text-bone">
-              <p className="eyebrow text-bone/55">{comparison.callout.label}</p>
+            <div className="mt-10 border border-ink/15 bg-paper p-7 lg:p-8 text-ink">
+              <p className="eyebrow text-ink/55">{comparison.callout.label}</p>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="display tabular text-displayLg leading-none">
                   {comparison.callout.price}
                 </span>
-                <span className="text-ui text-bone/65">{comparison.callout.cadence}</span>
+                <span className="text-ui text-ink/65">{comparison.callout.cadence}</span>
               </div>
-              <p className="mt-3 text-ui text-bone/70 pretty">{comparison.callout.tier}</p>
+              <p className="mt-3 text-ui text-ink/70 pretty">{comparison.callout.tier}</p>
               <div className="mt-7">
                 <Button
                   href={comparison.callout.cta.href}

@@ -24,7 +24,7 @@ export default function OnboardingPage() {
 
   return (
     <Section
-      tone="ink"
+      tone="paper"
       pad="none"
       grain
       className="pt-32 pb-24 md:pt-40 md:pb-32 min-h-[80vh]"
@@ -32,16 +32,16 @@ export default function OnboardingPage() {
       <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
         <aside className="lg:col-span-5 lg:pr-10 lg:sticky lg:top-32">
           <Eyebrow>Step 2 of 2</Eyebrow>
-          <h1 className="display mt-6 text-h1Lg text-bone balance">
+          <h1 className="display mt-6 text-h1Lg text-ink balance">
             Tell us about you.
           </h1>
-          <p className="t-intro mt-8 max-w-prose2 text-bodyLg text-coolGrey-soft pretty">
+          <p className="t-intro mt-8 max-w-prose2 text-bodyLg text-ink/65 pretty">
             The Coach is most useful when it knows what kind of athlete it&apos;s
             working with. This takes about ninety seconds. Every specialist
             uses these answers to pre-fill prompts so you spend less time
             re-typing context.
           </p>
-          <p className="mt-8 text-caption text-coolGrey-deep">
+          <p className="mt-8 text-caption text-ink/45">
             Want to skip and finish later?{" "}
             <Link href="/coach" className="link-teal">
               Open the coach room

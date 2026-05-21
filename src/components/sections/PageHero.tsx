@@ -24,7 +24,7 @@ export function PageHero({
 }: Props) {
   return (
     <Section
-      tone="ink"
+      tone="paper"
       pad="none"
       grain
       className={cn("pt-32 pb-20 md:pt-40 md:pb-24 lg:pt-48 lg:pb-28", className)}
@@ -40,14 +40,14 @@ export function PageHero({
             <Eyebrow number={number} tone="muted">{eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="display mt-8 text-h1Lg text-bone balance">
+            <h1 className="display mt-8 text-h1Lg text-ink balance">
               {title}
             </h1>
           </Reveal>
         </div>
         {sub && (
           <Reveal delay={240} className={align === "split" ? "lg:col-span-4 lg:pt-12" : ""}>
-            <p className="t-intro max-w-prose2 text-bodyLg text-coolGrey-soft pretty">
+            <p className="t-intro max-w-prose2 text-bodyLg text-ink/65 pretty">
               {sub}
             </p>
             {children}

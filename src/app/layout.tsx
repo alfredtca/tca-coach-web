@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, DM_Sans, DM_Mono } from "next/font/google";
+import { Barlow, DM_Sans, DM_Mono } from "next/font/google";
 import { SiteNav } from "@/components/nav/SiteNav";
 import { StickyMobileCTA } from "@/components/nav/StickyMobileCTA";
 import { Footer } from "@/components/nav/Footer";
 import "@/styles/globals.css";
 
-const barlow = Barlow_Condensed({
+// Parent brand uses Barlow (not Condensed) for headings at 600/700.
+// See thecommercialathlete.com — CSS variable --font_0 = "barlow-v2".
+const barlow = Barlow({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  variable: "--font-barlow-condensed",
+  variable: "--font-barlow",
   display: "swap"
 });
 
@@ -74,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en-AU"
       className={`${barlow.variable} ${dm.variable} ${dmMono.variable}`}
     >
-      <body className="min-h-screen bg-ink text-white antialiased">
+      <body className="min-h-screen bg-paper text-ink antialiased">
         <a href="#main" className="skip-link">
           Skip to content
         </a>

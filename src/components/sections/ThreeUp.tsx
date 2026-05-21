@@ -82,10 +82,10 @@ export function ThreeUp() {
                 aria-hidden
                 className="absolute left-6 top-6 z-[3] h-12 w-px bg-teal"
               />
-              {/* Bottom plate — dark background sized to text content */}
-              <div className="absolute inset-x-0 bottom-0 z-[3] bg-ink/85 p-7 md:p-9">
-                <p className="eyebrow text-bone/65">The Commercial Athlete</p>
-                <p className="display-section mt-3 text-h2 leading-[1.05] text-bone balance">
+              {/* Bottom plate — solid ink so the headline reads on any photo */}
+              <div className="absolute inset-x-0 bottom-0 z-[3] bg-ink/[0.92] p-7 md:p-9">
+                <p className="eyebrow text-paper/65">The Commercial Athlete</p>
+                <p className="display-section mt-3 text-h2 leading-[1.05] text-paper balance">
                   Built for athletes who refuse to wait.
                 </p>
               </div>

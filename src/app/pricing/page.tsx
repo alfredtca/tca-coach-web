@@ -26,14 +26,14 @@ export default function PricingPage() {
       <PricingTable />
       <ComparisonPanel />
 
-      <Section tone="charcoal" pad="default">
+      <Section tone="paperSoft" pad="default">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <header className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <Reveal>
               <Eyebrow>Pricing FAQ</Eyebrow>
             </Reveal>
             <Reveal delay={120}>
-              <h2 className="display mt-6 text-h2 text-white md:text-h2Lg balance">
+              <h2 className="display mt-6 text-h2 text-ink md:text-h2Lg balance">
                 Quick answers on pricing.
               </h2>
             </Reveal>
@@ -41,7 +41,7 @@ export default function PricingPage() {
           <Reveal delay={200} className="lg:col-span-7">
             <Accordion
               items={pricing.pricingFaqs}
-              tone="ink"
+              tone="paper"
               defaultOpenIndex={0}
             />
           </Reveal>

@@ -1,48 +1,83 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * The Commercial Athlete Coach — design system.
+ *
+ * Palette matches the parent brand at thecommercialathlete.com so the two
+ * properties read as one family. Light-mode-first: white surfaces, true
+ * black text, teal #00C49A as the single accent.
+ *
+ * Parent brand tokens (extracted from live CSS variables on
+ * thecommercialathlete.com Wix theme):
+ *   --color_15 = 0,0,0          (ink — primary text)
+ *   --color_0  = 255,255,255    (paper — primary surface)
+ *   --color_14 = 0,196,154      (teal accent — #00C49A)
+ *   --color_12 = 241,243,245    (paper-soft — secondary surface)
+ *   --color_13 = 194,194,194    (rule — hairline divider)
+ *   --color_18 = 94,98,95       (mid-grey — body alt)
+ *   --color_10 = 176,176,176    (mute — caption text)
+ *   --font_0/2 = barlow-v2 700  (display + section headings, uppercase)
+ *   --font_7   = dm-sans 400    (body)
+ */
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Brand-strict primaries
-        charcoal: "#1A1C1E",
-        ink: "#0F1112",
-        obsidian: "#1A1F1E",
-        surface: "#252829",
-        elevated: "#2E3133",
-        mist: "#3A3D3F",
-        teal: {
-          DEFAULT: "#3DBFA0",
-          deep: "#2E9F85",
-          glow: "rgba(61,191,160,0.18)"
-        },
-        bone: "#F0EDE8",
-        boneDeep: "#E5E0D8",
+        // ─── Brand surfaces ──────────────────────────────────────
         paper: {
-          DEFAULT: "#E8E6E6",
-          soft: "#EFEDED",
-          deep: "#D4D2D2"
+          DEFAULT: "#FFFFFF",
+          soft: "#F1F3F5",
+          deep: "#E2E2E2"
         },
+        ink: {
+          DEFAULT: "#000000",
+          soft: "#111214",
+          mid: "#282A28"
+        },
+        // Coach-room dark surfaces — kept for the app shell so the
+        // chat interface has the contrast it needs. Same family, not
+        // used on marketing pages.
+        charcoal: "#111214",
+        obsidian: "#0F1112",
+        surface: "#1A1C1E",
+
+        // ─── Accent (one only — discipline matters) ─────────────
+        teal: {
+          DEFAULT: "#00C49A",
+          deep: "#00A483",
+          glow: "rgba(0,196,154,0.18)"
+        },
+
+        // ─── Neutral scale (matches parent) ─────────────────────
+        rule: "#C2C2C2",
         coolGrey: {
-          DEFAULT: "#A0A8A5",
-          deep: "#6E7572",
-          soft: "#C9CFCC",
-          warm: "#B8BEBB"
+          DEFAULT: "#8F8F8F",
+          deep: "#5E625F",
+          soft: "#B0B0B0",
+          warm: "#757575"
         },
-        // Agent-specific desaturated accents — never used as primary,
-        // only as 1px tints on icon containers, hairlines, micro-marks.
+        bone: "#F1F3F5",
+        boneDeep: "#E2E2E2",
+
+        // ─── Agent-specific desaturated accents ─────────────────
+        // Used only as 1px tints on icon containers / hairlines, never
+        // as primary fills. Kept for the per-agent identification in
+        // the coach room.
         agent: {
-          architect: "#9FB7A6",       // sage   — Brand Architect
-          strategist: "#B6B294",      // olive  — Revenue Strategist
-          authority: "#B5A795",       // taupe  — Authority Builder
-          dealroom: "#A0A8AE",        // slate  — Deal Room Assistant
-          shield: "#9CA8A8",          // steel  — Reputation & Media Shield
-          confidence: "#C9BEA8"       // champagne — Commercial Confidence
+          architect: "#9FB7A6",
+          strategist: "#B6B294",
+          authority: "#B5A795",
+          dealroom: "#A0A8AE",
+          shield: "#9CA8A8",
+          confidence: "#C9BEA8"
         }
       },
       fontFamily: {
-        display: ["var(--font-barlow-condensed)", "sans-serif"],
+        // Headings use Barlow (not Condensed) to match parent's --font_0
+        // through --font_3. Uppercase styling lives in .display / .display-section
+        // classes, not in the font itself.
+        display: ["var(--font-barlow)", "sans-serif"],
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-dm-mono)", "ui-monospace", "monospace"]
       },
@@ -54,29 +89,29 @@ const config: Config = {
         ui: "-0.005em"
       },
       fontSize: {
-        // ─── Brand typography scale ───────────────────────────
-        // Caption — DM Sans Regular, 12–13px / mobile 12px
+        // ─── Brand typography scale (parent-matched) ────────────
+        // Caption — DM Sans, 12–13px
         caption: ["clamp(12px, 1.05vw, 13px)", { lineHeight: "1.5", letterSpacing: "0em" }],
         microNum: ["10px", { lineHeight: "1.0", letterSpacing: "0.16em" }],
         eyebrow: ["11px", { lineHeight: "1.1", letterSpacing: "0.18em" }],
-        // UI / Button — DM Sans Medium, 14–15px / mobile 14px
+        // UI / Button — DM Sans Medium, 14–15px
         ui: ["clamp(14px, 1.1vw, 15px)", { lineHeight: "1.45", letterSpacing: "-0.005em" }],
-        // Body Copy — DM Sans Regular, 16–17px / mobile 15.5–16px
+        // Body — DM Sans Regular, 16–17px
         body: ["clamp(15.5px, 1.2vw, 17px)", { lineHeight: "1.65" }],
-        // Intro Copy — DM Sans Regular, 18–20px / mobile 16–17px
+        // Intro — DM Sans Regular, 18–20px
         bodyLg: ["clamp(17px, 1.45vw, 20px)", { lineHeight: "1.55" }],
-        // Module H3 — DM Sans Medium, 20–24px / mobile 18–21px
+        // H3 — DM Sans Medium, 20–24px
         h3: ["clamp(18px, 1.55vw, 21px)", { lineHeight: "1.2", letterSpacing: "-0.005em" }],
         h3Lg: ["clamp(21px, 1.85vw, 24px)", { lineHeight: "1.2", letterSpacing: "-0.005em" }],
-        // Section H2 — Barlow Condensed SemiBold Uppercase, 30–36px / mobile 26–30px
-        h2: ["clamp(26px, 2.6vw, 30px)", { lineHeight: "1.05", letterSpacing: "0.02em" }],
-        h2Lg: ["clamp(30px, 3.1vw, 36px)", { lineHeight: "1.0", letterSpacing: "0.02em" }],
-        // Page H1 — Barlow Condensed Bold Uppercase, 44–56px / mobile 32–38px
-        h1: ["clamp(32px, 3.6vw, 44px)", { lineHeight: "0.98", letterSpacing: "0.02em" }],
-        h1Lg: ["clamp(38px, 4.4vw, 56px)", { lineHeight: "0.96", letterSpacing: "0.02em" }],
-        // Hero Display — Barlow Condensed Bold Uppercase, 56–72px / mobile 34–42px
-        display: ["clamp(34px, 4.8vw, 56px)", { lineHeight: "0.94", letterSpacing: "0.02em" }],
-        displayLg: ["clamp(42px, 6vw, 72px)", { lineHeight: "0.92", letterSpacing: "0.02em" }]
+        // H2 — Barlow 700 uppercase, 30–36px (parent font_2 is 32px)
+        h2: ["clamp(26px, 2.6vw, 30px)", { lineHeight: "1.1", letterSpacing: "0.02em" }],
+        h2Lg: ["clamp(30px, 3.1vw, 36px)", { lineHeight: "1.05", letterSpacing: "0.02em" }],
+        // H1 — Barlow 700 uppercase, 44–56px (parent font_0 is 34px scaled)
+        h1: ["clamp(32px, 3.6vw, 44px)", { lineHeight: "1.0", letterSpacing: "0.02em" }],
+        h1Lg: ["clamp(38px, 4.4vw, 56px)", { lineHeight: "0.98", letterSpacing: "0.02em" }],
+        // Hero display — bumped largest size
+        display: ["clamp(34px, 4.8vw, 56px)", { lineHeight: "0.96", letterSpacing: "0.02em" }],
+        displayLg: ["clamp(42px, 6vw, 72px)", { lineHeight: "0.94", letterSpacing: "0.02em" }]
       },
       spacing: {
         gutter: "1.25rem",
@@ -99,15 +134,12 @@ const config: Config = {
         650: "650ms"
       },
       boxShadow: {
-        // Tinted, never pure black — shadows pick up the surrounding tone
-        "teal-glow": "0 0 0 1px rgba(61,191,160,0.35), 0 12px 40px -8px rgba(61,191,160,0.30)",
-        "teal-soft": "0 8px 32px -12px rgba(61,191,160,0.25)",
-        "ink-deep": "0 24px 60px -20px rgba(15,17,18,0.55)",
-        // Light-section shadows — warm-tinted to bone background
-        "bone-soft": "0 18px 38px -22px rgba(70, 60, 45, 0.25), 0 6px 14px -8px rgba(70, 60, 45, 0.10)",
-        "bone-deep": "0 32px 60px -22px rgba(70, 60, 45, 0.30), 0 10px 22px -8px rgba(70, 60, 45, 0.12)",
-        "bone-edge": "0 1px 0 rgba(70, 60, 45, 0.08), 0 24px 48px -24px rgba(70, 60, 45, 0.22)",
-        "card-lift": "0 1px 0 rgba(255,255,255,0.6) inset, 0 24px 48px -22px rgba(70, 60, 45, 0.30)"
+        // Subtle shadows tuned for light surfaces — never pure black.
+        "teal-glow": "0 0 0 1px rgba(0,196,154,0.35), 0 12px 40px -8px rgba(0,196,154,0.30)",
+        "teal-soft": "0 8px 32px -12px rgba(0,196,154,0.25)",
+        "ink-deep": "0 24px 60px -20px rgba(0,0,0,0.12)",
+        "card": "0 1px 2px rgba(0,0,0,0.04), 0 18px 40px -24px rgba(0,0,0,0.10)",
+        "card-lift": "0 1px 2px rgba(0,0,0,0.04), 0 28px 60px -24px rgba(0,0,0,0.14)"
       },
       animation: {
         "fade-up": "fadeUp 650ms cubic-bezier(0.22, 1, 0.36, 1) both",

@@ -169,7 +169,7 @@ export function ChatRoom({
 
   return (
     <Section
-      tone="ink"
+      tone="paper"
       pad="none"
       grain
       className="pt-28 pb-20 md:pt-32 md:pb-24 min-h-[100dvh]"
@@ -179,13 +179,13 @@ export function ChatRoom({
         <aside className="lg:col-span-4 xl:col-span-3">
           <Link
             href="/coach"
-            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-coolGrey-warm hover:text-bone"
+            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-ink/55 hover:text-ink"
           >
             <ArrowLeft size={12} weight="bold" />
             All specialists
           </Link>
 
-          <div className="mt-8 border border-white/10 bg-white/[0.03]">
+          <div className="mt-8 border border-rule/60 bg-paper-soft">
             <div
               className="relative px-7 py-8"
               style={{
@@ -198,14 +198,14 @@ export function ChatRoom({
                 style={{ backgroundColor: toneHex }}
               />
               <div
-                className="flex h-14 w-14 items-center justify-center border bg-white/[0.04]"
+                className="flex h-14 w-14 items-center justify-center border bg-paper"
                 style={{ borderColor: `${toneHex}55`, color: toneHex }}
               >
                 <Icon size={26} weight="light" />
               </div>
-              <p className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-coolGrey-warm">
+              <p className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/55">
                 <span className="tabular">Pathway {pathwayNumber}</span>
-                <span aria-hidden className="h-px w-3 bg-coolGrey-deep" />
+                <span aria-hidden className="h-px w-3 bg-ink/30" />
                 <span>{pathwayLabel}</span>
                 <span
                   aria-hidden
@@ -214,25 +214,25 @@ export function ChatRoom({
                   title={toneLabel}
                 />
               </p>
-              <h1 className="display-section mt-3 text-h2 leading-[1.05] text-bone balance">
+              <h1 className="display-section mt-3 text-h2 leading-[1.05] text-ink balance">
                 {agentName}
               </h1>
-              <p className="mt-3 text-ui text-coolGrey-soft pretty">
+              <p className="mt-3 text-ui text-ink/65 pretty">
                 {agentRole}
               </p>
             </div>
             <div className="px-7 py-6">
-              <p className="text-body text-coolGrey-soft pretty">
+              <p className="text-body text-ink/65 pretty">
                 {agentDescription}
               </p>
-              <p className="mt-6 text-[10px] uppercase tracking-[0.22em] text-coolGrey-deep">
+              <p className="mt-6 text-[10px] uppercase tracking-[0.22em] text-ink/45">
                 Produces
               </p>
               <ul className="mt-3 flex flex-col gap-2.5">
                 {produces.map((p) => (
                   <li
                     key={p}
-                    className="flex gap-3 text-ui text-coolGrey-soft pretty"
+                    className="flex gap-3 text-ui text-ink/65 pretty"
                   >
                     <span
                       aria-hidden
@@ -250,7 +250,7 @@ export function ChatRoom({
             type="button"
             onClick={reset}
             disabled={messages.length === 0}
-            className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-coolGrey-warm hover:text-bone disabled:opacity-30 disabled:hover:text-coolGrey-warm"
+            className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-ink/55 hover:text-ink disabled:opacity-30 disabled:hover:text-ink/55"
           >
             <ArrowsClockwise size={12} weight="bold" />
             Reset conversation
@@ -261,7 +261,7 @@ export function ChatRoom({
         <div className="lg:col-span-8 xl:col-span-9 flex flex-col">
           <div
             ref={scrollRef}
-            className="relative min-h-[60dvh] flex-1 overflow-y-auto border border-white/10 bg-ink/40 p-6 md:p-10"
+            className="relative min-h-[60dvh] flex-1 overflow-y-auto border border-rule/60 bg-paper p-6 md:p-10"
           >
             {messages.length === 0 ? (
               <EmptyState
@@ -312,7 +312,7 @@ export function ChatRoom({
               e.preventDefault();
               send();
             }}
-            className="mt-5 border border-white/15 bg-ink/60"
+            className="mt-5 border border-rule/70 bg-paper"
           >
             <label htmlFor="composer" className="sr-only">
               Message {agentName}
@@ -325,10 +325,10 @@ export function ChatRoom({
               placeholder={`Message ${agentName}…`}
               rows={3}
               disabled={streaming}
-              className="w-full resize-none bg-transparent px-5 py-4 text-bodyLg text-bone placeholder:text-coolGrey-deep focus:outline-none disabled:opacity-60"
+              className="w-full resize-none bg-transparent px-5 py-4 text-bodyLg text-ink placeholder:text-ink/45 focus:outline-none disabled:opacity-60"
             />
-            <div className="flex items-center justify-between border-t border-white/10 px-5 py-3">
-              <span className="text-[10px] uppercase tracking-[0.22em] text-coolGrey-deep">
+            <div className="flex items-center justify-between border-t border-rule/60 px-5 py-3">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-ink/45">
                 Enter to send · Shift+Enter for new line
               </span>
               <button
@@ -338,9 +338,9 @@ export function ChatRoom({
                   "inline-flex h-10 items-center gap-2 px-5 text-[12px] font-medium uppercase tracking-[0.18em]",
                   "transition-all duration-250 ease-editorial",
                   "active:translate-y-[1px] active:scale-[0.98]",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
                   "disabled:cursor-not-allowed disabled:opacity-40",
-                  "bg-teal text-ink hover:bg-teal-deep"
+                  "bg-ink text-paper hover:bg-ink-soft"
                 )}
               >
                 {streaming ? "Working" : "Send"}
@@ -357,11 +357,11 @@ export function ChatRoom({
 function UserBubble({ content, userName }: { content: string; userName: string }) {
   return (
     <div className="flex flex-col items-end gap-2">
-      <span className="text-[10px] uppercase tracking-[0.22em] text-coolGrey-deep">
+      <span className="text-[10px] uppercase tracking-[0.22em] text-ink/45">
         {userName}
       </span>
-      <div className="max-w-[85%] border border-white/15 bg-white/[0.05] px-5 py-4">
-        <p className="text-body text-bone pretty whitespace-pre-wrap">{content}</p>
+      <div className="max-w-[85%] border border-rule/70 bg-paper-soft px-5 py-4">
+        <p className="text-body text-ink pretty whitespace-pre-wrap">{content}</p>
       </div>
     </div>
   );
@@ -387,10 +387,10 @@ function AssistantBubble({
         {agentName}
       </span>
       <div
-        className="max-w-[88%] border bg-white/[0.02] px-5 py-4"
+        className="max-w-[88%] border bg-paper-soft px-5 py-4"
         style={{ borderColor: `${toneHex}40` }}
       >
-        <p className="text-body text-coolGrey-soft pretty whitespace-pre-wrap">
+        <p className="text-body text-ink/80 pretty whitespace-pre-wrap">
           {content || (streaming ? "…" : "")}
           {streaming && content && (
             <span
@@ -426,38 +426,38 @@ function EmptyState({
       >
         Coach room
       </p>
-      <p className="display mt-4 text-h1 text-bone balance">
+      <p className="display mt-4 text-h1 text-ink balance">
         Start the conversation, {userName}.
       </p>
-      <p className="t-intro mt-5 max-w-[52ch] text-bodyLg text-coolGrey-soft pretty">
+      <p className="t-intro mt-5 max-w-[52ch] text-bodyLg text-ink/65 pretty">
         {agentName} stays inside their lane. Ask something outside their charter
         and they&apos;ll point you to the specialist who covers it.
       </p>
 
       {quickStarts.length > 0 && (
         <div className="mt-10 w-full max-w-[640px]">
-          <p className="eyebrow text-coolGrey-warm">Quick start</p>
+          <p className="eyebrow text-ink/55">Quick start</p>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {quickStarts.map((q) => (
               <li key={q.label}>
                 <button
                   type="button"
                   onClick={() => onPick(q.template)}
-                  className="group relative flex h-full w-full items-start gap-3 border border-white/[0.12] bg-white/[0.03] p-4 text-left transition-all duration-250 ease-editorial hover:-translate-y-[1px] hover:border-white/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                  className="group relative flex h-full w-full items-start gap-3 border border-rule/55 bg-paper p-4 text-left transition-all duration-250 ease-editorial hover:-translate-y-[1px] hover:border-ink/30 hover:bg-paper-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
                 >
                   <span
                     aria-hidden
                     className="mt-[7px] h-px w-3 shrink-0 transition-all group-hover:w-5"
                     style={{ backgroundColor: toneHex }}
                   />
-                  <span className="text-ui text-bone leading-snug pretty">
+                  <span className="text-ui text-ink leading-snug pretty">
                     {q.label}
                   </span>
                 </button>
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-caption text-coolGrey-deep">
+          <p className="mt-4 text-caption text-ink/45">
             Pick one to pre-fill the composer with your profile context.
             You can edit before sending.
           </p>

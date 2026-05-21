@@ -80,11 +80,11 @@ export function ProfileForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="border border-white/10 bg-charcoal p-8 lg:p-10"
+      className="border border-rule/60 bg-paper-soft p-8 lg:p-10"
       noValidate
     >
-      <p className="eyebrow text-coolGrey">Your Commercial Profile</p>
-      <p className="mt-4 max-w-prose2 text-caption text-coolGrey-soft pretty">
+      <p className="eyebrow text-ink/60">Your Commercial Profile</p>
+      <p className="mt-4 max-w-prose2 text-caption text-ink/65 pretty">
         The specialists use these details to pre-fill prompts and pitch you
         the right work. You can change any of this later from your dashboard.
       </p>
@@ -157,9 +157,9 @@ export function ProfileForm() {
             "mt-3 inline-flex h-12 items-center justify-center gap-2 px-7 text-[13px] font-medium uppercase tracking-[0.16em]",
             "transition-all duration-250 ease-editorial",
             "active:translate-y-[1px] active:scale-[0.98]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
             "disabled:opacity-50",
-            "bg-teal text-ink hover:bg-teal-deep"
+            "bg-ink text-paper hover:bg-ink-soft"
           )}
         >
           {state === "loading" ? "Saving…" : "Open the coach room"}
@@ -188,7 +188,7 @@ type FieldProps = {
 function Field({ id, label, value, onChange, placeholder, required }: FieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="eyebrow text-coolGrey">
+      <label htmlFor={id} className="eyebrow text-ink/60">
         {label}
       </label>
       <input
@@ -198,7 +198,7 @@ function Field({ id, label, value, onChange, placeholder, required }: FieldProps
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="mt-2 w-full bg-transparent border border-white/15 px-4 py-3.5 text-ui text-white placeholder:text-white/40 focus:outline-none focus:border-teal transition-colors"
+        className="mt-2 w-full bg-transparent border border-rule/70 px-4 py-3.5 text-ui text-ink placeholder:text-ink/40 focus:outline-none focus:border-teal transition-colors"
       />
     </div>
   );
@@ -215,17 +215,17 @@ type SelectProps = {
 function Select({ id, label, value, onChange, options }: SelectProps) {
   return (
     <div>
-      <label htmlFor={id} className="eyebrow text-coolGrey">
+      <label htmlFor={id} className="eyebrow text-ink/60">
         {label}
       </label>
       <select
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full bg-transparent border border-white/15 px-4 py-3.5 text-ui text-white focus:outline-none focus:border-teal transition-colors"
+        className="mt-2 w-full bg-transparent border border-rule/70 px-4 py-3.5 text-ui text-ink focus:outline-none focus:border-teal transition-colors"
       >
         {options.map((opt) => (
-          <option key={opt.value} value={opt.value} className="bg-ink text-white">
+          <option key={opt.value} value={opt.value} className="bg-paper text-ink">
             {opt.label}
           </option>
         ))}

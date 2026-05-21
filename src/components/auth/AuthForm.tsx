@@ -62,14 +62,14 @@ export function AuthForm({ mode }: Props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="border border-white/10 bg-charcoal p-8 lg:p-10"
+      className="border border-rule/60 bg-paper-soft p-8 lg:p-10"
       noValidate
     >
-      <p className="eyebrow text-coolGrey">
+      <p className="eyebrow text-ink/60">
         {mode === "login" ? "Sign in" : "Create your account"}
       </p>
 
-      <p className="mt-4 max-w-prose2 text-caption text-coolGrey-soft pretty">
+      <p className="mt-4 max-w-prose2 text-caption text-ink/65 pretty">
         Offline build — no password yet. Real auth ships with Supabase. Any
         valid email opens a {mode === "login" ? "Pro" : "selected-tier"} session
         for testing.
@@ -109,7 +109,7 @@ export function AuthForm({ mode }: Props) {
             <div>
               <label
                 htmlFor="auth-tier"
-                className="eyebrow text-coolGrey"
+                className="eyebrow text-ink/60"
               >
                 Plan (mock — pick to test agent gating)
               </label>
@@ -119,15 +119,15 @@ export function AuthForm({ mode }: Props) {
                 onChange={(e) =>
                   setTier(e.target.value as "starter" | "pro" | "annual")
                 }
-                className="mt-2 w-full bg-transparent border border-white/15 px-4 py-3.5 text-ui text-white focus:outline-none focus:border-teal transition-colors"
+                className="mt-2 w-full bg-transparent border border-rule/70 px-4 py-3.5 text-ui text-ink focus:outline-none focus:border-teal transition-colors"
               >
-                <option value="starter" className="bg-ink text-white">
+                <option value="starter" className="bg-paper text-ink">
                   Starter — 3 specialists
                 </option>
-                <option value="pro" className="bg-ink text-white">
+                <option value="pro" className="bg-paper text-ink">
                   Pro — all 5 specialists
                 </option>
-                <option value="annual" className="bg-ink text-white">
+                <option value="annual" className="bg-paper text-ink">
                   Annual Pro — all 5 specialists
                 </option>
               </select>
@@ -153,9 +153,9 @@ export function AuthForm({ mode }: Props) {
             "mt-3 inline-flex h-12 items-center justify-center gap-2 px-7 text-[13px] font-medium uppercase tracking-[0.16em]",
             "transition-all duration-250 ease-editorial",
             "active:translate-y-[1px] active:scale-[0.98]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
             "disabled:opacity-50",
-            "bg-teal text-ink hover:bg-teal-deep"
+            "bg-ink text-paper hover:bg-ink-soft"
           )}
         >
           {state === "loading"
@@ -199,7 +199,7 @@ function Field({
 }: FieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="eyebrow text-coolGrey">
+      <label htmlFor={id} className="eyebrow text-ink/60">
         {label}
       </label>
       <input
@@ -210,7 +210,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="mt-2 w-full bg-transparent border border-white/15 px-4 py-3.5 text-ui text-white placeholder:text-white/40 focus:outline-none focus:border-teal transition-colors"
+        className="mt-2 w-full bg-transparent border border-rule/70 px-4 py-3.5 text-ui text-ink placeholder:text-ink/40 focus:outline-none focus:border-teal transition-colors"
       />
     </div>
   );

@@ -1,6 +1,15 @@
 import { cn } from "@/lib/cn";
 
-type Tone = "ink" | "charcoal" | "obsidian" | "surface" | "teal" | "bone" | "paper";
+type Tone =
+  | "paper"     // default — white, parent-brand surface
+  | "paperSoft" // light grey #F1F3F5 for contrast bands
+  | "ink"       // black with white text — used sparingly (coach room shell, hero scrim)
+  | "teal"      // accent surface — CTAs only
+  | "charcoal"  // app-shell dark
+  | "obsidian"  // app-shell darker
+  | "surface"   // app-shell mid
+  | "bone";     // legacy alias for paperSoft
+
 type Pad = "none" | "sm" | "default" | "lg";
 
 type Props = {
@@ -14,13 +23,14 @@ type Props = {
 };
 
 const toneMap: Record<Tone, string> = {
-  ink: "bg-ink text-white",
-  charcoal: "bg-charcoal text-white",
-  obsidian: "bg-obsidian text-white",
-  surface: "bg-surface text-white",
+  paper: "bg-paper text-ink",
+  paperSoft: "bg-paper-soft text-ink",
+  ink: "bg-ink text-paper",
   teal: "bg-teal text-ink",
-  bone: "bg-bone text-ink",
-  paper: "bg-paper text-ink"
+  charcoal: "bg-charcoal text-paper",
+  obsidian: "bg-obsidian text-paper",
+  surface: "bg-surface text-paper",
+  bone: "bg-paper-soft text-ink"
 };
 
 const padMap: Record<Pad, string> = {
@@ -32,14 +42,13 @@ const padMap: Record<Pad, string> = {
 
 export function Section({
   id,
-  tone = "ink",
+  tone = "paper",
   pad = "default",
   grain = false,
   className,
   children,
   as: Tag = "section"
 }: Props) {
-  const isDark = tone === "ink" || tone === "charcoal" || tone === "surface" || tone === "obsidian";
   return (
     <Tag
       id={id}
@@ -47,7 +56,7 @@ export function Section({
         "relative overflow-hidden",
         toneMap[tone],
         padMap[pad],
-        grain && isDark && "grain",
+        grain && "grain",
         className
       )}
     >

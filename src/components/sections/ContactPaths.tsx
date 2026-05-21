@@ -6,24 +6,24 @@ import { contact } from "@/lib/content";
 
 export function ContactPaths() {
   return (
-    <Section tone="ink" pad="default" grain>
-      <ul className="grid grid-cols-1 gap-px border border-white/10 bg-white/5 md:grid-cols-3">
+    <Section tone="paper" pad="default" grain>
+      <ul className="grid grid-cols-1 gap-px border border-rule/60 bg-paper-soft md:grid-cols-3">
         {contact.paths.map((path, i) => (
           <Reveal as="li" key={path.id} delay={i * 110} className="h-full">
             <Card
-              tone="ink"
+              tone="paper"
               as="article"
               className="h-full p-9 lg:p-11"
               highlight={path.id === "athletes"}
             >
-              <p className="eyebrow text-coolGrey">{path.eyebrow}</p>
-              <span className="display tabular mt-8 block text-[18px] tracking-[0.16em] text-coolGrey">
+              <p className="eyebrow text-ink/60">{path.eyebrow}</p>
+              <span className="display tabular mt-8 block text-[18px] tracking-[0.16em] text-ink/60">
                 {`0${i + 1}`}
               </span>
-              <h3 className="display-section mt-3 text-h2 text-bone">
+              <h3 className="display-section mt-3 text-h2 text-ink">
                 {path.title}
               </h3>
-              <p className="mt-6 text-body text-coolGrey-soft pretty">{path.body}</p>
+              <p className="mt-6 text-body text-ink/65 pretty">{path.body}</p>
               <span aria-hidden className="mt-auto block pt-12" />
               <div>
                 <Button
@@ -41,16 +41,16 @@ export function ContactPaths() {
       </ul>
 
       <Reveal delay={400}>
-        <div className="mt-16 grid gap-10 border-t border-white/10 pt-12 md:grid-cols-12">
+        <div className="mt-16 grid gap-10 border-t border-rule/60 pt-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="eyebrow text-coolGrey">{contact.office.title}</p>
-            <p className="display mt-4 text-h2 text-bone">
+            <p className="eyebrow text-ink/60">{contact.office.title}</p>
+            <p className="display mt-4 text-h2 text-ink">
               {contact.office.body}
             </p>
           </div>
-          <div className="md:col-span-7 md:pl-10 md:border-l md:border-white/10">
-            <p className="eyebrow text-coolGrey">Direct</p>
-            <ul className="mt-5 grid gap-3 text-body text-coolGrey-soft">
+          <div className="md:col-span-7 md:pl-10 md:border-l md:border-rule/60">
+            <p className="eyebrow text-ink/60">Direct</p>
+            <ul className="mt-5 grid gap-3 text-body text-ink/65">
               <li>
                 Athletes —{" "}
                 <a href="mailto:hello@thecommercialathlete.com.au" className="link-teal">

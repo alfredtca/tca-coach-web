@@ -27,19 +27,19 @@ export default function HowItWorksPage() {
         <AgentDetail key={agent.slug} agent={agent} index={i} />
       ))}
 
-      <Section tone="ink" pad="lg" grain className="border-t border-white/10">
+      <Section tone="paper" pad="lg" grain className="border-t border-rule/60">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
           <div className="lg:col-span-8">
             <Reveal>
-              <p className="eyebrow text-coolGrey">{howItWorks.outro.eyebrow}</p>
+              <p className="eyebrow text-ink/60">{howItWorks.outro.eyebrow}</p>
             </Reveal>
             <Reveal delay={120}>
-              <h2 className="display mt-6 text-h1Lg text-white balance">
+              <h2 className="display mt-6 text-h1Lg text-ink balance">
                 {howItWorks.outro.title}
               </h2>
             </Reveal>
             <Reveal delay={240}>
-              <p className="mt-6 max-w-prose2 text-bodyLg text-white/70 pretty">
+              <p className="mt-6 max-w-prose2 text-bodyLg text-ink/70 pretty">
                 {howItWorks.outro.body}
               </p>
             </Reveal>

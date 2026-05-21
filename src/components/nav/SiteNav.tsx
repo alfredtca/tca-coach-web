@@ -38,12 +38,10 @@ export function SiteNav() {
     };
   }, [open]);
 
-  // Close mobile drawer on route change
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Pull session on mount + on every route change so login/logout reflects.
   useEffect(() => {
     let alive = true;
     fetch("/api/auth/session", { cache: "no-store" })
@@ -78,8 +76,8 @@ export function SiteNav() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-350 ease-editorial",
         scrolled
-          ? "border-b border-white/10 bg-ink/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-rule/60 bg-paper/90 backdrop-blur-md"
+          : "border-b border-transparent bg-paper/40 backdrop-blur-sm"
       )}
     >
       <div className="mx-auto flex max-w-wide items-center justify-between px-6 py-4 md:px-10 lg:px-14">
@@ -100,8 +98,8 @@ export function SiteNav() {
                     className={cn(
                       "relative text-[12.5px] font-medium uppercase tracking-[0.16em] transition-colors duration-250 ease-editorial",
                       active
-                        ? "text-teal"
-                        : "text-white/75 hover:text-white"
+                        ? "text-teal-deep"
+                        : "text-ink/70 hover:text-ink"
                     )}
                   >
                     {link.label}
@@ -120,7 +118,7 @@ export function SiteNav() {
 
         <div className="hidden lg:flex items-center gap-4">
           {!sessionLoaded ? (
-            <div aria-hidden className="h-5 w-32 animate-pulse bg-white/5" />
+            <div aria-hidden className="h-5 w-32 animate-pulse bg-ink/5" />
           ) : session ? (
             <>
               <Link
@@ -128,20 +126,20 @@ export function SiteNav() {
                 className={cn(
                   "inline-flex items-center gap-2 text-[12.5px] font-medium uppercase tracking-[0.16em] transition-colors duration-250 ease-editorial",
                   pathname.startsWith("/coach")
-                    ? "text-teal"
-                    : "text-white/75 hover:text-white"
+                    ? "text-teal-deep"
+                    : "text-ink/70 hover:text-ink"
                 )}
               >
                 <User size={14} weight="bold" />
                 Coach room
               </Link>
-              <span className="text-[11px] uppercase tracking-[0.16em] text-coolGrey-deep">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-ink/45">
                 {session.name?.split(" ")[0] || session.email}
               </span>
               <button
                 type="button"
                 onClick={logout}
-                className="inline-flex items-center gap-1.5 text-[12.5px] font-medium uppercase tracking-[0.16em] text-white/75 transition-colors duration-250 ease-editorial hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                className="inline-flex items-center gap-1.5 text-[12.5px] font-medium uppercase tracking-[0.16em] text-ink/70 transition-colors duration-250 ease-editorial hover:text-teal-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
                 <SignOut size={13} weight="bold" />
                 Log out
@@ -151,7 +149,7 @@ export function SiteNav() {
             <>
               <Link
                 href={navigation.login.href}
-                className="text-[12.5px] font-medium uppercase tracking-[0.16em] text-white/75 transition-colors duration-250 ease-editorial hover:text-white"
+                className="text-[12.5px] font-medium uppercase tracking-[0.16em] text-ink/70 transition-colors duration-250 ease-editorial hover:text-ink"
               >
                 {navigation.login.label}
               </Link>
@@ -168,7 +166,7 @@ export function SiteNav() {
           aria-controls="mobile-drawer"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center text-white"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center text-ink"
         >
           {open ? <X size={22} weight="regular" /> : <List size={22} weight="regular" />}
         </button>
@@ -178,7 +176,7 @@ export function SiteNav() {
       <div
         id="mobile-drawer"
         hidden={!open}
-        className="lg:hidden border-t border-white/10 bg-ink"
+        className="lg:hidden border-t border-rule/60 bg-paper"
       >
         <ul className="flex flex-col px-6 py-6">
           {navigation.primary.map((link) => {
@@ -187,12 +185,12 @@ export function SiteNav() {
                 ? pathname === "/"
                 : pathname.startsWith(link.href);
             return (
-              <li key={link.href} className="border-b border-white/5">
+              <li key={link.href} className="border-b border-rule/40">
                 <Link
                   href={link.href}
                   className={cn(
                     "flex items-center justify-between py-4 text-[14px] uppercase tracking-[0.14em] transition-colors",
-                    active ? "text-teal" : "text-white"
+                    active ? "text-teal-deep" : "text-ink"
                   )}
                 >
                   {link.label}
@@ -200,7 +198,7 @@ export function SiteNav() {
                     aria-hidden
                     className={cn(
                       "tabular text-[10px]",
-                      active ? "text-teal" : "text-white/40"
+                      active ? "text-teal" : "text-ink/40"
                     )}
                   >
                     /
@@ -210,16 +208,16 @@ export function SiteNav() {
             );
           })}
           {session && (
-            <li className="border-b border-white/5">
+            <li className="border-b border-rule/40">
               <Link
                 href="/coach"
                 className={cn(
                   "flex items-center justify-between py-4 text-[14px] uppercase tracking-[0.14em] transition-colors",
-                  pathname.startsWith("/coach") ? "text-teal" : "text-white"
+                  pathname.startsWith("/coach") ? "text-teal-deep" : "text-ink"
                 )}
               >
                 Coach room
-                <span aria-hidden className="tabular text-[10px] text-white/40">
+                <span aria-hidden className="tabular text-[10px] text-ink/40">
                   /
                 </span>
               </Link>
@@ -229,7 +227,7 @@ export function SiteNav() {
         <div className="grid grid-cols-2 gap-3 px-6 pb-8">
           {session ? (
             <>
-              <Button href="/coach" variant="ghost" size="md" fullWidth>
+              <Button href="/coach" variant="ghost-dark" size="md" fullWidth>
                 Coach room
               </Button>
               <Button onClick={logout} variant="primary" size="md" fullWidth>
@@ -238,7 +236,7 @@ export function SiteNav() {
             </>
           ) : (
             <>
-              <Button href={navigation.login.href} variant="ghost" size="md" fullWidth>
+              <Button href={navigation.login.href} variant="ghost-dark" size="md" fullWidth>
                 {navigation.login.label}
               </Button>
               <Button href={navigation.cta.href} variant="primary" size="md" fullWidth>

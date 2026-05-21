@@ -28,15 +28,16 @@ const sizeMap: Record<Size, string> = {
   lg: "h-12 px-7 text-[13px] tracking-[0.16em]"
 };
 
+// Primary button mirrors the parent brand: solid ink fill, paper text,
+// teal accent reserved for hairlines/hover affordances elsewhere.
 const variantMap: Record<Variant, string> = {
   primary:
-    "bg-teal text-ink hover:bg-teal-deep border border-teal hover:border-teal-deep " +
-    "shadow-[0_0_0_0_rgba(61,191,160,0)] hover:shadow-teal-soft",
+    "bg-ink text-paper hover:bg-ink-soft border border-ink hover:border-ink-soft",
   ghost:
-    "bg-transparent text-white border border-white/25 hover:border-teal hover:text-teal",
+    "bg-transparent text-paper border border-paper/25 hover:border-teal hover:text-teal",
   "ghost-dark":
-    "bg-transparent text-ink border border-ink/25 hover:border-teal hover:text-teal-deep",
-  link: "p-0 h-auto bg-transparent border-0 text-teal hover:text-teal-deep underline underline-offset-4"
+    "bg-transparent text-ink border border-ink/25 hover:border-ink hover:bg-ink hover:text-paper",
+  link: "p-0 h-auto bg-transparent border-0 text-teal-deep hover:text-teal underline underline-offset-4"
 };
 
 export function Button(props: AsLink | AsButton) {

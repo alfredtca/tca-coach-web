@@ -41,11 +41,11 @@ export function AccessForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="border border-white/10 bg-charcoal p-8 lg:p-10"
+      className="border border-rule/60 bg-paper-soft p-8 lg:p-10"
       noValidate
     >
-      <p className="eyebrow text-coolGrey">Preview access</p>
-      <p className="mt-4 max-w-prose2 text-caption text-coolGrey-soft pretty">
+      <p className="eyebrow text-ink/60">Preview access</p>
+      <p className="mt-4 max-w-prose2 text-caption text-ink/65 pretty">
         Six-digit code shared with reviewers during private preview. Carlie or
         Alfred will have given this to you. If you don&apos;t have it, the
         coach room isn&apos;t open to you yet.
@@ -53,7 +53,7 @@ export function AccessForm() {
 
       <div className="mt-8 grid gap-5">
         <div>
-          <label htmlFor="access-code" className="eyebrow text-coolGrey">
+          <label htmlFor="access-code" className="eyebrow text-ink/60">
             Access code
           </label>
           <input
@@ -66,7 +66,7 @@ export function AccessForm() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="6-digit code"
             required
-            className="mt-2 w-full bg-transparent border border-white/15 px-4 py-3.5 text-ui text-white placeholder:text-white/40 tracking-[0.18em] focus:outline-none focus:border-teal transition-colors"
+            className="mt-2 w-full bg-transparent border border-rule/70 px-4 py-3.5 text-ui text-ink placeholder:text-ink/40 tracking-[0.18em] focus:outline-none focus:border-teal transition-colors"
           />
         </div>
 
@@ -79,7 +79,7 @@ export function AccessForm() {
             "active:translate-y-[1px] active:scale-[0.98]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
             "disabled:cursor-not-allowed disabled:opacity-50",
-            "bg-teal text-ink hover:bg-teal-deep"
+            "bg-ink text-paper hover:bg-ink-soft"
           )}
         >
           {state === "loading" ? "Checking…" : "Enter"}
